@@ -1,0 +1,6 @@
+/Pods
+Podfile.lock
+
+## Build generated
+build/
+DerivedData/
