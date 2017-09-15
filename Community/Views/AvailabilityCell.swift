@@ -9,10 +9,14 @@
 import UIKit
 
 let NUM_MEALS = 3
-let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
 class AvailableCell: UICollectionViewCell{
-
+    public var day:String!
+    {
+        didSet {
+            self.dayLabel.text = day
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +27,7 @@ class AvailableCell: UICollectionViewCell{
         let label = UILabel()
         label.backgroundColor = .red
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Test"
+        label.textAlignment = .center
         return label
     }()
     
