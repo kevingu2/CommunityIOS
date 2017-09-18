@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032EF0B71F6DA04F00EDDCAD /* Community.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 032EF0B51F6DA04F00EDDCAD /* Community.xcdatamodeld */; };
+		032EF0D11F6E19B800EDDCAD /* AvailabilityControllerSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EF0D01F6E19B800EDDCAD /* AvailabilityControllerSwift.swift */; };
 		037712F61F5274B800CBCD87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037712F51F5274B800CBCD87 /* AppDelegate.swift */; };
 		037712FD1F5274B800CBCD87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 037712FC1F5274B800CBCD87 /* Assets.xcassets */; };
 		037713001F5274B800CBCD87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 037712FE1F5274B800CBCD87 /* LaunchScreen.storyboard */; };
@@ -14,7 +16,6 @@
 		037713161F5274B800CBCD87 /* CommunityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037713151F5274B800CBCD87 /* CommunityUITests.swift */; };
 		037713241F5346D900CBCD87 /* AvailabilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037713231F5346D900CBCD87 /* AvailabilityController.swift */; };
 		03D43ED21F65BAC100CB4817 /* AvailabilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D43ED11F65BAC100CB4817 /* AvailabilityCell.swift */; };
-		03D43ED41F65C80C00CB4817 /* AvailabilitySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D43ED31F65C80C00CB4817 /* AvailabilitySource.swift */; };
 		517666FDDB5BD40278B3D7E9 /* Pods_Community.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4499CE2B5E46EBF3BD1E17 /* Pods_Community.framework */; };
 		B6F4E79034CCA2DA0C31A1BD /* Pods_CommunityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F89D85689D1794A006FE3CC /* Pods_CommunityTests.framework */; };
 		EA7895DC6C4DFD54C84170EF /* Pods_CommunityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DFB16DE055A950721CA001 /* Pods_CommunityUITests.framework */; };
@@ -38,6 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		032EF0B61F6DA04F00EDDCAD /* Community.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Community.xcdatamodel; sourceTree = "<group>"; };
+		032EF0D01F6E19B800EDDCAD /* AvailabilityControllerSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityControllerSwift.swift; sourceTree = "<group>"; };
+		032EF1131F6EE73C00EDDCAD /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		032EF1141F6EE73C00EDDCAD /* Availability+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Availability+CoreDataClass.swift"; sourceTree = "<group>"; };
+		032EF1151F6EE73C00EDDCAD /* Availability+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Availability+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		032EF1161F6EE73C00EDDCAD /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		037712F21F5274B800CBCD87 /* Community.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Community.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		037712F51F5274B800CBCD87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		037712FC1F5274B800CBCD87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,7 +58,6 @@
 		037713171F5274B800CBCD87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		037713231F5346D900CBCD87 /* AvailabilityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityController.swift; sourceTree = "<group>"; };
 		03D43ED11F65BAC100CB4817 /* AvailabilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityCell.swift; sourceTree = "<group>"; };
-		03D43ED31F65C80C00CB4817 /* AvailabilitySource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilitySource.swift; sourceTree = "<group>"; };
 		14A5E0FEDBA029423EFA0057 /* Pods-Community.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Community.release.xcconfig"; path = "Pods/Target Support Files/Pods-Community/Pods-Community.release.xcconfig"; sourceTree = "<group>"; };
 		18362F7EC4791A1C5A84C9FC /* Pods-CommunityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunityTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommunityTests/Pods-CommunityTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1F89D85689D1794A006FE3CC /* Pods_CommunityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +129,7 @@
 				037712FC1F5274B800CBCD87 /* Assets.xcassets */,
 				037712FE1F5274B800CBCD87 /* LaunchScreen.storyboard */,
 				037713011F5274B800CBCD87 /* Info.plist */,
+				032EF0B51F6DA04F00EDDCAD /* Community.xcdatamodeld */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -149,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				037713231F5346D900CBCD87 /* AvailabilityController.swift */,
+				032EF0D01F6E19B800EDDCAD /* AvailabilityControllerSwift.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -164,7 +172,10 @@
 		037D5B791F5374F10021D3BB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				03D43ED31F65C80C00CB4817 /* AvailabilitySource.swift */,
+				032EF1131F6EE73C00EDDCAD /* User+CoreDataClass.swift */,
+				032EF1161F6EE73C00EDDCAD /* User+CoreDataProperties.swift */,
+				032EF1141F6EE73C00EDDCAD /* Availability+CoreDataClass.swift */,
+				032EF1151F6EE73C00EDDCAD /* Availability+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -484,7 +495,8 @@
 				03D43ED21F65BAC100CB4817 /* AvailabilityCell.swift in Sources */,
 				037713241F5346D900CBCD87 /* AvailabilityController.swift in Sources */,
 				037712F61F5274B800CBCD87 /* AppDelegate.swift in Sources */,
-				03D43ED41F65C80C00CB4817 /* AvailabilitySource.swift in Sources */,
+				032EF0D11F6E19B800EDDCAD /* AvailabilityControllerSwift.swift in Sources */,
+				032EF0B71F6DA04F00EDDCAD /* Community.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,6 +780,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		032EF0B51F6DA04F00EDDCAD /* Community.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				032EF0B61F6DA04F00EDDCAD /* Community.xcdatamodel */,
+			);
+			currentVersion = 032EF0B61F6DA04F00EDDCAD /* Community.xcdatamodel */;
+			path = Community.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 037712EA1F5274B800CBCD87 /* Project object */;
 }

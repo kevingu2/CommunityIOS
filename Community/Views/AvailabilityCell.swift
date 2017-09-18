@@ -8,13 +8,28 @@
 
 import UIKit
 
-let NUM_MEALS = 3
+let MEALS = ["Breakfast", "Lunch", "Dinner"]
 
-class AvailableCell: UICollectionViewCell{
-    public var day:String!
+
+class AvailableView:UIImageView {
+    public var availability:Availability?
+    
+    override init(image: UIImage?) {
+        super.init(image: image)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class AvailableCell: UICollectionViewCell, UIGestureRecognizerDelegate{
+    
+    public var availability:Availability!
     {
         didSet {
-            self.dayLabel.text = day
+            self.dayLabel.text = availability.day
+            setupViews()
         }
     }
     
@@ -31,7 +46,6 @@ class AvailableCell: UICollectionViewCell{
         return label
     }()
     
-    
     func setupViews(){
         addSubview(dayLabel)
         let section = self.frame.width/4
@@ -40,19 +54,50 @@ class AvailableCell: UICollectionViewCell{
         dayLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: section * -3).isActive = true
         dayLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         dayLabel.layer.borderColor = UIColor.black.cgColor
-        dayLabel.layer.borderWidth = 2.0
+        dayLabel.layer.borderWidth = 1.0
+        
         // Create clickable Views
-        for index in 0...(NUM_MEALS - 2) {
-            let clickableView = UIView()
+        for index in 0...(MEALS.count - 1) {
+            
+            let clickableView = AvailableView(image: nil)
             addSubview(clickableView)
             clickableView.layer.borderColor = UIColor.black.cgColor
-            clickableView.layer.borderWidth = 2.0
+            clickableView.layer.borderWidth = 1.0
             clickableView.translatesAutoresizingMaskIntoConstraints = false
             clickableView.backgroundColor = .orange
             clickableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
             clickableView.leftAnchor.constraint(equalTo: dayLabel.rightAnchor, constant: section * CGFloat(index)).isActive = true
-            clickableView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: section * CGFloat(-index)).isActive = true
+            clickableView.rightAnchor.constraint(equalTo: dayLabel.rightAnchor, constant: section * CGFloat(index+1)).isActive = true
             clickableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+            
+            // Add onclick listener
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapMealView(_:)))
+            clickableView.availability = availability
+            clickableView.tag = index
+            clickableView.addGestureRecognizer(tapGesture)
+            clickableView.isUserInteractionEnabled = true
+        }
+    }
+
+    @objc
+    func tapMealView(_ sender: UITapGestureRecognizer){
+        if let view = sender.view as? AvailableView{
+            if let availability = view.availability {
+                if view.tag == 0 {
+                    availability.breakfast = !availability.breakfast
+                } else if view.tag == 1 {
+                    availability.lunch = !availability.lunch
+                } else if view.tag == 2{
+                    availability.dinner = !availability.dinner
+                }
+                if view.image == nil {
+                    let checkMarkImg = UIImage(named: "checkmark")
+                    view.image = checkMarkImg
+                    view.contentMode = .scaleAspectFit
+                } else{
+                    view.image = nil
+                }
+            }
         }
     }
     

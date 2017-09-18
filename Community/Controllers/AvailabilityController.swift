@@ -22,16 +22,17 @@ class AvailabilityController: UICollectionViewController, UICollectionViewDelega
         collectionView?.dataSource = self
         collectionView?.register(AvailableCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
+        setupData()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return days.count
+        return availabilities.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         if let availableCell = cell as? AvailableCell {
-            availableCell.day = days[indexPath.row]
+            availableCell.availability = availabilities[indexPath.row]
         }
         return cell
     }
