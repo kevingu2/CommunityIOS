@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
-let MEALS = ["Breakfast", "Lunch", "Dinner"]
+let BREAKFAST = "Breakfast"
+let LUNCH = "Lunch"
+let DINNER = "Dinner"
+let MEALS = [BREAKFAST, LUNCH, DINNER]
 
 
 class AvailableView:UIImageView {
@@ -40,9 +44,9 @@ class AvailableCell: UICollectionViewCell, UIGestureRecognizerDelegate{
     
     let dayLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .red
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
         return label
     }()
     
@@ -58,13 +62,11 @@ class AvailableCell: UICollectionViewCell, UIGestureRecognizerDelegate{
         
         // Create clickable Views
         for index in 0...(MEALS.count - 1) {
-            
             let clickableView = AvailableView(image: nil)
             addSubview(clickableView)
             clickableView.layer.borderColor = UIColor.black.cgColor
             clickableView.layer.borderWidth = 1.0
             clickableView.translatesAutoresizingMaskIntoConstraints = false
-            clickableView.backgroundColor = .orange
             clickableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
             clickableView.leftAnchor.constraint(equalTo: dayLabel.rightAnchor, constant: section * CGFloat(index)).isActive = true
             clickableView.rightAnchor.constraint(equalTo: dayLabel.rightAnchor, constant: section * CGFloat(index+1)).isActive = true
@@ -76,6 +78,20 @@ class AvailableCell: UICollectionViewCell, UIGestureRecognizerDelegate{
             clickableView.tag = index
             clickableView.addGestureRecognizer(tapGesture)
             clickableView.isUserInteractionEnabled = true
+            
+            let checkMarkImg = UIImage(named: "checkmark")
+            if availability != nil {
+                clickableView.contentMode = .scaleAspectFit
+                if MEALS[index] == BREAKFAST && availability.breakfast{
+                    clickableView.image = checkMarkImg
+                }
+                else if MEALS[index] == LUNCH && availability.lunch{
+                    clickableView.image = checkMarkImg
+                }
+                else if MEALS[index] == DINNER && availability.dinner{
+                    clickableView.image = checkMarkImg
+                }
+            }
         }
     }
 
@@ -84,11 +100,11 @@ class AvailableCell: UICollectionViewCell, UIGestureRecognizerDelegate{
         if let view = sender.view as? AvailableView{
             if let availability = view.availability {
                 if view.tag == 0 {
-                    availability.breakfast = !availability.breakfast
+                    availability.setValue(!availability.breakfast, forKey: "breakfast")
                 } else if view.tag == 1 {
-                    availability.lunch = !availability.lunch
+                    availability.setValue(!availability.lunch, forKey: "lunch")
                 } else if view.tag == 2{
-                    availability.dinner = !availability.dinner
+                    availability.setValue(!availability.dinner, forKey: "dinner")
                 }
                 if view.image == nil {
                     let checkMarkImg = UIImage(named: "checkmark")

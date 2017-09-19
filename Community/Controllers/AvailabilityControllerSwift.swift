@@ -11,35 +11,43 @@ import UIKit
 
 var availabilities:[Availability] = []
 let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+let USER_ID = "user_id"
 
 extension AvailabilityController {
     
     func setupData() {
-        clearData()
-        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
-            let context = delegate.persistentContainer.viewContext
-            let kevin = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as! User
-            kevin.firstName = "Kevin"
-            kevin.lastName = "Gu"
-
-            for day in days{
-                let availability = NSEntityDescription.insertNewObject(forEntityName: "Availability", into: context) as! Availability
-                availability.day = day
-                availability.user = kevin
+        let userDefaults = UserDefaults()
+        let userId = userDefaults.object(forKey: USER_ID)
+        if userId == nil{
+            clearData()
+            if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+                let context = delegate.persistentContainer.viewContext
+                let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as! User
+                user.firstName = "Kevin"
+                user.lastName = "Gu"
+                user.id = 1
+                for day in days{
+                    let availability = NSEntityDescription.insertNewObject(forEntityName: "Availability", into: context) as! Availability
+                    availability.day = day
+                    availability.user = user
+                }
+                do {
+                    try(context.save())
+                } catch{
+                    let nserror = error as NSError
+                    fatalError("Unresolved error \(nserror)")
+                }
+                userDefaults.set(user.id, forKey: "user_id")
+            } else {
+                fatalError("Unresolved error to initialize context")
             }
-            do {
-                try(context.save())
-            } catch{
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror)")
-            }
-        } else {
-            fatalError("Unresolved error to initialize context")
         }
-        loadData()
+        //loadData()
     }
     
     func clearData() {
+        let userDefaults = UserDefaults()
+        userDefaults.removeObject(forKey: USER_ID)
         if let delegate = (UIApplication.shared.delegate as? AppDelegate){
             let context = delegate.persistentContainer.viewContext
             do {

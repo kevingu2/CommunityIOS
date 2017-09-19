@@ -2,7 +2,7 @@
 //  Availability+CoreDataProperties.swift
 //  
 //
-//  Created by Kevin Gu on 9/17/17.
+//  Created by Kevin Gu on 9/18/17.
 //
 //
 
@@ -16,10 +16,10 @@ extension Availability {
         return NSFetchRequest<Availability>(entityName: "Availability")
     }
 
-    @NSManaged public var day: String?
     @NSManaged public var breakfast: Bool
-    @NSManaged public var lunch: Bool
+    @NSManaged public var day: String?
     @NSManaged public var dinner: Bool
+    @NSManaged public var lunch: Bool
     @NSManaged public var user: User?
 
 }

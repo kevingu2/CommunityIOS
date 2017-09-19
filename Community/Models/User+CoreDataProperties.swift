@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  
 //
-//  Created by Kevin Gu on 9/17/17.
+//  Created by Kevin Gu on 9/18/17.
 //
 //
 
@@ -18,6 +18,7 @@ extension User {
 
     @NSManaged public var firstName: String?
     @NSManaged public var lastName: String?
+    @NSManaged public var id: Int64
     @NSManaged public var availability: NSSet?
 
 }
