@@ -159,8 +159,7 @@
 		037D5B751F5374C50021D3BB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				037713231F5346D900CBCD87 /* AvailabilityController.swift */,
-				032EF0D01F6E19B800EDDCAD /* AvailabilityControllerSwift.swift */,
+				03C52C1D1F7341810016DB3C /* Availability */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -168,9 +167,7 @@
 		037D5B771F5374D80021D3BB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				03D43ED11F65BAC100CB4817 /* AvailabilityCell.swift */,
-				032EF1171F6F7C1B00EDDCAD /* MealCell.swift */,
-				03B5EC371F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift */,
+				03C52C1C1F7341720016DB3C /* Availability */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,12 +175,47 @@
 		037D5B791F5374F10021D3BB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				03C52C1B1F73415B0016DB3C /* Availability */,
+				03C52C1A1F73414C0016DB3C /* User */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		03C52C1A1F73414C0016DB3C /* User */ = {
+			isa = PBXGroup;
+			children = (
 				032EF1131F6EE73C00EDDCAD /* User+CoreDataClass.swift */,
 				032EF1161F6EE73C00EDDCAD /* User+CoreDataProperties.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		03C52C1B1F73415B0016DB3C /* Availability */ = {
+			isa = PBXGroup;
+			children = (
 				032EF1141F6EE73C00EDDCAD /* Availability+CoreDataClass.swift */,
 				032EF1151F6EE73C00EDDCAD /* Availability+CoreDataProperties.swift */,
 			);
-			path = Models;
+			path = Availability;
+			sourceTree = "<group>";
+		};
+		03C52C1C1F7341720016DB3C /* Availability */ = {
+			isa = PBXGroup;
+			children = (
+				03D43ED11F65BAC100CB4817 /* AvailabilityCell.swift */,
+				032EF1171F6F7C1B00EDDCAD /* MealCell.swift */,
+				03B5EC371F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift */,
+			);
+			path = Availability;
+			sourceTree = "<group>";
+		};
+		03C52C1D1F7341810016DB3C /* Availability */ = {
+			isa = PBXGroup;
+			children = (
+				037713231F5346D900CBCD87 /* AvailabilityController.swift */,
+				032EF0D01F6E19B800EDDCAD /* AvailabilityControllerSwift.swift */,
+			);
+			path = Availability;
 			sourceTree = "<group>";
 		};
 		7B57D55BBFCED06112A07EE7 /* Pods */ = {
