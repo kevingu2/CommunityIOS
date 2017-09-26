@@ -6,7 +6,6 @@ target 'Community' do
   use_frameworks!
 
   # Pods for Community
-  pod "Dropper", '~> 2.7.6'
 
   target 'CommunityTests' do
     inherit! :search_paths

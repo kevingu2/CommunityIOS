@@ -17,6 +17,7 @@
 		037713161F5274B800CBCD87 /* CommunityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037713151F5274B800CBCD87 /* CommunityUITests.swift */; };
 		037713241F5346D900CBCD87 /* AvailabilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037713231F5346D900CBCD87 /* AvailabilityController.swift */; };
 		03B5EC381F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B5EC371F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift */; };
+		03C52C1F1F74E24F0016DB3C /* FrequencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C52C1E1F74E24F0016DB3C /* FrequencyCell.swift */; };
 		03D43ED21F65BAC100CB4817 /* AvailabilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D43ED11F65BAC100CB4817 /* AvailabilityCell.swift */; };
 		517666FDDB5BD40278B3D7E9 /* Pods_Community.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4499CE2B5E46EBF3BD1E17 /* Pods_Community.framework */; };
 		B6F4E79034CCA2DA0C31A1BD /* Pods_CommunityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F89D85689D1794A006FE3CC /* Pods_CommunityTests.framework */; };
@@ -61,6 +62,7 @@
 		037713171F5274B800CBCD87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		037713231F5346D900CBCD87 /* AvailabilityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityController.swift; sourceTree = "<group>"; };
 		03B5EC371F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityFooterCell.swift; sourceTree = "<group>"; };
+		03C52C1E1F74E24F0016DB3C /* FrequencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyCell.swift; sourceTree = "<group>"; };
 		03D43ED11F65BAC100CB4817 /* AvailabilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityCell.swift; sourceTree = "<group>"; };
 		14A5E0FEDBA029423EFA0057 /* Pods-Community.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Community.release.xcconfig"; path = "Pods/Target Support Files/Pods-Community/Pods-Community.release.xcconfig"; sourceTree = "<group>"; };
 		18362F7EC4791A1C5A84C9FC /* Pods-CommunityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunityTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommunityTests/Pods-CommunityTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				03D43ED11F65BAC100CB4817 /* AvailabilityCell.swift */,
 				032EF1171F6F7C1B00EDDCAD /* MealCell.swift */,
 				03B5EC371F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift */,
+				03C52C1E1F74E24F0016DB3C /* FrequencyCell.swift */,
 			);
 			path = Availability;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03C52C1F1F74E24F0016DB3C /* FrequencyCell.swift in Sources */,
 				032EF1181F6F7C1B00EDDCAD /* MealCell.swift in Sources */,
 				03D43ED21F65BAC100CB4817 /* AvailabilityCell.swift in Sources */,
 				037713241F5346D900CBCD87 /* AvailabilityController.swift in Sources */,

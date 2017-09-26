@@ -9,7 +9,12 @@
 import UIKit
 import CoreData
 
-class AvailabilityController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+extension Notification.Name {
+    public static let frequencyNotfication = Notification.Name(rawValue: "frequencyNotficationKey")
+}
+    
+class AvailabilityController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIPickerViewDelegate, UIPickerViewDataSource {
+    public var pickerView:UIPickerView!
     
     let dayCellId = "dayCellId"
     let mealCellId = "mealCellId"
@@ -24,9 +29,28 @@ class AvailabilityController: UICollectionViewController, UICollectionViewDelega
         collectionView?.dataSource = self
         collectionView?.register(AvailableCell.self, forCellWithReuseIdentifier: dayCellId)
         collectionView?.register(MealCell.self, forCellWithReuseIdentifier: mealCellId)
-        collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
+        collectionView?.register(FrequencyCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
         collectionView?.register(AvailableFooterCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerId)
         setupData()
+        
+        // Create PickerView
+        let pickerRect = CGRect(x: 0, y: 0, width: view.frame.width, height:300)
+        pickerView = UIPickerView(frame: pickerRect)
+        self.view.addSubview(pickerView)
+        pickerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        pickerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        pickerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        pickerView.translatesAutoresizingMaskIntoConstraints = false
+        pickerView.backgroundColor = .white
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        pickerView.isHidden = true
+        pickerView.isUserInteractionEnabled = true
+        pickerView.layer.borderWidth = 2
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -61,9 +85,13 @@ class AvailabilityController: UICollectionViewController, UICollectionViewDelega
         
         if kind == UICollectionElementKindSectionHeader {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
+            if let frequencyCell = header as? FrequencyCell {
+                frequencyCell.pickerView = pickerView
+            }
             return header
         } else{
             let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerId, for: indexPath)
+            pickerView.topAnchor.constraint(equalTo: footer.bottomAnchor).isActive = true
             return footer
         }
     }
@@ -83,6 +111,31 @@ class AvailabilityController: UICollectionViewController, UICollectionViewDelega
         return CGSize(width: view.frame.width, height:100)
     }
     
+    // Mark: Picker View
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(row+1)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // do something with the resulting selected row
+        
+        // reset the picker to the middle of the long list
+        pickerView.selectRow(row, inComponent: 0, animated: false)
+        let frequencyInfo = ["num" : row + 1]
+        NotificationCenter.default.post(name: .frequencyNotfication, object: nil, userInfo: frequencyInfo)
+        pickerView.isHidden = true
+    }
+    
+    // columns count
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // rows count
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 7
+    }
 }
 
 

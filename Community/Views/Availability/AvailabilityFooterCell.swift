@@ -10,14 +10,10 @@ import UIKit
 import CoreData
 
 class AvailableFooterCell: UICollectionViewCell {
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func setupViews(){
@@ -28,7 +24,8 @@ class AvailableFooterCell: UICollectionViewCell {
         contBtn.addTarget(self, action: #selector(self.transitionToSearch(_:)), for: .touchUpInside)
         contBtn.translatesAutoresizingMaskIntoConstraints = false
         contBtn.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        contBtn.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        contBtn.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        contBtn.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
     
     @objc
@@ -42,5 +39,9 @@ class AvailableFooterCell: UICollectionViewCell {
                 fatalError("Unresolved error \(nserror)")
             }
         }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
