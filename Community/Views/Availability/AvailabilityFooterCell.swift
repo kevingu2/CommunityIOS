@@ -16,29 +16,19 @@ class AvailableFooterCell: UICollectionViewCell {
         setupViews()
     }
     
+    public let contBtn: UIButton = {
+        let button = UIButton(type: .custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     func setupViews(){
-        let contBtn = UIButton(type: .custom)
         addSubview(contBtn)
         contBtn.setTitle("Continue", for: .normal)
         contBtn.setTitleColor(.blue, for: .normal)
-        contBtn.addTarget(self, action: #selector(self.transitionToSearch(_:)), for: .touchUpInside)
-        contBtn.translatesAutoresizingMaskIntoConstraints = false
         contBtn.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         contBtn.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         contBtn.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-    }
-    
-    @objc
-    func transitionToSearch(_ sender: UIButton){
-        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
-            let context = delegate.persistentContainer.viewContext
-            do {
-                try(context.save())
-            } catch{
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror)")
-            }
-        }
     }
     
     required init?(coder aDecoder: NSCoder) {

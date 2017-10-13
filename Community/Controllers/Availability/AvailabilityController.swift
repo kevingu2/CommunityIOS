@@ -23,7 +23,9 @@ class AvailabilityController: UICollectionViewController, UICollectionViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationItem.title = "Click on the days you are free"
+        self.navigationItem.hidesBackButton = true
         collectionView?.backgroundColor = .white
         collectionView?.delegate   = self
         collectionView?.dataSource = self
@@ -90,7 +92,8 @@ class AvailabilityController: UICollectionViewController, UICollectionViewDelega
             }
             return header
         } else{
-            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerId, for: indexPath)
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerId, for: indexPath) as! AvailableFooterCell
+            footer.contBtn.addTarget(self, action: #selector(self.transitionToSearch(_:)), for: .touchUpInside)
             pickerView.topAnchor.constraint(equalTo: footer.bottomAnchor).isActive = true
             return footer
         }
@@ -135,6 +138,22 @@ class AvailabilityController: UICollectionViewController, UICollectionViewDelega
     // rows count
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return 7
+    }
+    
+    // MARK: Button Delegates
+    
+    @objc
+    func transitionToSearch(_ sender: UIButton){
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+            let context = delegate.persistentContainer.viewContext
+            do {
+                try(context.save())
+            } catch{
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror)")
+            }
+        }
+        self.navigationController?.pushViewController(CustomedTabBarController(), animated: false)
     }
 }
 

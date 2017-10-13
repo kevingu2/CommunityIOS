@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,17 +20,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        let availabilityController  = AvailabilityController(collectionViewLayout: UICollectionViewFlowLayout())
-        window?.rootViewController = UINavigationController(rootViewController: availabilityController)
+        //let availabilityController  = AvailabilityController(collectionViewLayout: UICollectionViewFlowLayout())
+        let rootController:UIViewController!
+        let defaults = UserDefaults.standard
+        let email = defaults.string(forKey: "email")
+        if email != nil {
+            rootController = AvailabilityController(collectionViewLayout: UICollectionViewFlowLayout())
+        } else{
+            rootController = LoginViewController()
+        }
+        window?.rootViewController = UINavigationController(rootViewController: rootController)
         let navigationBarAppearace = UINavigationBar.appearance()
         let navBarColor = UIColor(red:0.44, green:0.94, blue:0.89, alpha:1.0)
         navigationBarAppearace.backgroundColor = navBarColor
         navigationBarAppearace.tintColor = .white
         let titleDict = [NSAttributedStringKey.foregroundColor: UIColor.white]
         navigationBarAppearace.titleTextAttributes = titleDict
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
-
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        return handled
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -82,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     // MARK: - Core Data Saving support
-    
+
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

@@ -18,7 +18,13 @@
 		037713241F5346D900CBCD87 /* AvailabilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037713231F5346D900CBCD87 /* AvailabilityController.swift */; };
 		03B5EC381F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B5EC371F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift */; };
 		03C52C1F1F74E24F0016DB3C /* FrequencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C52C1E1F74E24F0016DB3C /* FrequencyCell.swift */; };
+		03CFBAFF1F90ACB0000C3CAC /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFBAFE1F90ACB0000C3CAC /* Alerts.swift */; };
+		03CFBB021F90B58F000C3CAC /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFBB011F90B58F000C3CAC /* CustomTabBarController.swift */; };
+		03CFBB081F90B690000C3CAC /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFBB071F90B690000C3CAC /* CommunityViewController.swift */; };
+		03CFBB0F1F90B794000C3CAC /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFBB0E1F90B769000C3CAC /* ScheduleViewController.swift */; };
+		03CFBB101F90B797000C3CAC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFBB0D1F90B74F000C3CAC /* SettingViewController.swift */; };
 		03D43ED21F65BAC100CB4817 /* AvailabilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D43ED11F65BAC100CB4817 /* AvailabilityCell.swift */; };
+		03F80BF61F8989D100216BA5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F80BF51F89894200216BA5 /* LoginViewController.swift */; };
 		517666FDDB5BD40278B3D7E9 /* Pods_Community.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4499CE2B5E46EBF3BD1E17 /* Pods_Community.framework */; };
 		B6F4E79034CCA2DA0C31A1BD /* Pods_CommunityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F89D85689D1794A006FE3CC /* Pods_CommunityTests.framework */; };
 		EA7895DC6C4DFD54C84170EF /* Pods_CommunityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DFB16DE055A950721CA001 /* Pods_CommunityUITests.framework */; };
@@ -63,7 +69,13 @@
 		037713231F5346D900CBCD87 /* AvailabilityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityController.swift; sourceTree = "<group>"; };
 		03B5EC371F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityFooterCell.swift; sourceTree = "<group>"; };
 		03C52C1E1F74E24F0016DB3C /* FrequencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyCell.swift; sourceTree = "<group>"; };
+		03CFBAFE1F90ACB0000C3CAC /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		03CFBB011F90B58F000C3CAC /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		03CFBB071F90B690000C3CAC /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
+		03CFBB0D1F90B74F000C3CAC /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		03CFBB0E1F90B769000C3CAC /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		03D43ED11F65BAC100CB4817 /* AvailabilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityCell.swift; sourceTree = "<group>"; };
+		03F80BF51F89894200216BA5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		14A5E0FEDBA029423EFA0057 /* Pods-Community.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Community.release.xcconfig"; path = "Pods/Target Support Files/Pods-Community/Pods-Community.release.xcconfig"; sourceTree = "<group>"; };
 		18362F7EC4791A1C5A84C9FC /* Pods-CommunityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunityTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommunityTests/Pods-CommunityTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1F89D85689D1794A006FE3CC /* Pods_CommunityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +140,7 @@
 		037712F41F5274B800CBCD87 /* Community */ = {
 			isa = PBXGroup;
 			children = (
+				03CFBAFD1F90ACA0000C3CAC /* Util */,
 				037D5B791F5374F10021D3BB /* Models */,
 				037D5B771F5374D80021D3BB /* Views */,
 				037D5B751F5374C50021D3BB /* Controllers */,
@@ -161,6 +174,11 @@
 		037D5B751F5374C50021D3BB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				03CFBB061F90B67A000C3CAC /* Setting */,
+				03CFBB041F90B663000C3CAC /* Schedule */,
+				03CFBB031F90B65D000C3CAC /* Community */,
+				03CFBB001F90B578000C3CAC /* TabBar */,
+				03F80BF41F89893600216BA5 /* Login */,
 				03C52C1D1F7341810016DB3C /* Availability */,
 			);
 			path = Controllers;
@@ -219,6 +237,54 @@
 				032EF0D01F6E19B800EDDCAD /* AvailabilityControllerSwift.swift */,
 			);
 			path = Availability;
+			sourceTree = "<group>";
+		};
+		03CFBAFD1F90ACA0000C3CAC /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				03CFBAFE1F90ACB0000C3CAC /* Alerts.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		03CFBB001F90B578000C3CAC /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				03CFBB011F90B58F000C3CAC /* CustomTabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		03CFBB031F90B65D000C3CAC /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				03CFBB071F90B690000C3CAC /* CommunityViewController.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		03CFBB041F90B663000C3CAC /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				03CFBB0E1F90B769000C3CAC /* ScheduleViewController.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		03CFBB061F90B67A000C3CAC /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				03CFBB0D1F90B74F000C3CAC /* SettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		03F80BF41F89893600216BA5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				03F80BF51F89894200216BA5 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		7B57D55BBFCED06112A07EE7 /* Pods */ = {
@@ -482,11 +548,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Community/Pods-Community-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Dropper/Dropper.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dropper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -533,11 +605,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03CFBB0F1F90B794000C3CAC /* ScheduleViewController.swift in Sources */,
+				03F80BF61F8989D100216BA5 /* LoginViewController.swift in Sources */,
 				03C52C1F1F74E24F0016DB3C /* FrequencyCell.swift in Sources */,
 				032EF1181F6F7C1B00EDDCAD /* MealCell.swift in Sources */,
 				03D43ED21F65BAC100CB4817 /* AvailabilityCell.swift in Sources */,
+				03CFBB101F90B797000C3CAC /* SettingViewController.swift in Sources */,
 				037713241F5346D900CBCD87 /* AvailabilityController.swift in Sources */,
+				03CFBB021F90B58F000C3CAC /* CustomTabBarController.swift in Sources */,
 				037712F61F5274B800CBCD87 /* AppDelegate.swift in Sources */,
+				03CFBAFF1F90ACB0000C3CAC /* Alerts.swift in Sources */,
+				03CFBB081F90B690000C3CAC /* CommunityViewController.swift in Sources */,
 				032EF0D11F6E19B800EDDCAD /* AvailabilityControllerSwift.swift in Sources */,
 				032EF0B71F6DA04F00EDDCAD /* Community.xcdatamodeld in Sources */,
 				03B5EC381F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift in Sources */,
@@ -699,6 +777,7 @@
 			baseConfigurationReference = F06A108E2836BF20DC6A3EDD /* Pods-Community.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = EJM34WW366;
 				INFOPLIST_FILE = Community/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kgulabs.Community;
@@ -713,6 +792,7 @@
 			baseConfigurationReference = 14A5E0FEDBA029423EFA0057 /* Pods-Community.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = EJM34WW366;
 				INFOPLIST_FILE = Community/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kgulabs.Community;
