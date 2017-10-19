@@ -23,8 +23,8 @@ class AvailabilityController: UICollectionViewController, UICollectionViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationItem.title = "Click on the days you are free"
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationItem.title = "Click on the days you are free"
         self.navigationItem.hidesBackButton = true
         collectionView?.backgroundColor = .white
         collectionView?.delegate   = self
@@ -153,7 +153,7 @@ class AvailabilityController: UICollectionViewController, UICollectionViewDelega
                 fatalError("Unresolved error \(nserror)")
             }
         }
-        self.navigationController?.pushViewController(CustomedTabBarController(), animated: false)
+        self.present(CustomedTabBarController(), animated: true, completion: nil)
     }
 }
 

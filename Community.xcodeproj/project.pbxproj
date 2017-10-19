@@ -23,6 +23,7 @@
 		03CFBB081F90B690000C3CAC /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFBB071F90B690000C3CAC /* CommunityViewController.swift */; };
 		03CFBB0F1F90B794000C3CAC /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFBB0E1F90B769000C3CAC /* ScheduleViewController.swift */; };
 		03CFBB101F90B797000C3CAC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFBB0D1F90B74F000C3CAC /* SettingViewController.swift */; };
+		03CFBB121F934AA0000C3CAC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFBB111F934AA0000C3CAC /* Color.swift */; };
 		03D43ED21F65BAC100CB4817 /* AvailabilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D43ED11F65BAC100CB4817 /* AvailabilityCell.swift */; };
 		03F80BF61F8989D100216BA5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F80BF51F89894200216BA5 /* LoginViewController.swift */; };
 		517666FDDB5BD40278B3D7E9 /* Pods_Community.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4499CE2B5E46EBF3BD1E17 /* Pods_Community.framework */; };
@@ -74,6 +75,7 @@
 		03CFBB071F90B690000C3CAC /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		03CFBB0D1F90B74F000C3CAC /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		03CFBB0E1F90B769000C3CAC /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		03CFBB111F934AA0000C3CAC /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		03D43ED11F65BAC100CB4817 /* AvailabilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityCell.swift; sourceTree = "<group>"; };
 		03F80BF51F89894200216BA5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		14A5E0FEDBA029423EFA0057 /* Pods-Community.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Community.release.xcconfig"; path = "Pods/Target Support Files/Pods-Community/Pods-Community.release.xcconfig"; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				03CFBAFE1F90ACB0000C3CAC /* Alerts.swift */,
+				03CFBB111F934AA0000C3CAC /* Color.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				03CFBB101F90B797000C3CAC /* SettingViewController.swift in Sources */,
 				037713241F5346D900CBCD87 /* AvailabilityController.swift in Sources */,
 				03CFBB021F90B58F000C3CAC /* CustomTabBarController.swift in Sources */,
+				03CFBB121F934AA0000C3CAC /* Color.swift in Sources */,
 				037712F61F5274B800CBCD87 /* AppDelegate.swift in Sources */,
 				03CFBAFF1F90ACB0000C3CAC /* Alerts.swift in Sources */,
 				03CFBB081F90B690000C3CAC /* CommunityViewController.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import FBSDKCoreKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        //let availabilityController  = AvailabilityController(collectionViewLayout: UICollectionViewFlowLayout())
         let rootController:UIViewController!
         let defaults = UserDefaults.standard
         let email = defaults.string(forKey: "email")
@@ -31,9 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         window?.rootViewController = UINavigationController(rootViewController: rootController)
         let navigationBarAppearace = UINavigationBar.appearance()
-        let navBarColor = UIColor(red:0.44, green:0.94, blue:0.89, alpha:1.0)
-        navigationBarAppearace.backgroundColor = navBarColor
-        navigationBarAppearace.tintColor = .white
+        navigationBarAppearace.barTintColor = NAV_BAR_COLOR
         let titleDict = [NSAttributedStringKey.foregroundColor: UIColor.white]
         navigationBarAppearace.titleTextAttributes = titleDict
         
