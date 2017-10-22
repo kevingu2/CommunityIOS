@@ -26,25 +26,48 @@ class CommunityViewController: UIViewController {
         return view
     }()
     
+    let plusImageView: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .white
+        button.setTitle("+", for: .normal)
+        return button
+    }()
+    
+    let rightNavigationButton: UIBarButtonItem = {
+        let rightNavigationButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        rightNavigationButton.tintColor = .white
+        return rightNavigationButton
+    }()
+    
     override func viewDidLoad() {
         view.backgroundColor = .white
         navigationItem.titleView = inputsContainerView
         setupInputContainerView()
-
+        inputsContainerView.addSubview(searchTextField)
+        setupSearchTextfield()
+        navigationItem.rightBarButtonItem = rightNavigationButton
     }
     
     func setupInputContainerView() {
-        inputsContainerView.centerXAnchor.constraint(equalTo: navigationController!.navigationBar.centerXAnchor).isActive = true
         inputsContainerView.centerYAnchor.constraint(equalTo: navigationController!.navigationBar.centerYAnchor).isActive = true
-        inputsContainerView.widthAnchor.constraint(equalTo: navigationController!.navigationBar.widthAnchor, constant:-24).isActive = true
+        inputsContainerView.widthAnchor.constraint(equalTo: navigationController!.navigationBar.widthAnchor, constant:-50).isActive = true
+        inputsContainerView.leftAnchor.constraint(equalTo: navigationController!.navigationBar.leftAnchor, constant: -12)
         inputsContainerView.heightAnchor.constraint(equalTo: navigationController!.navigationBar.heightAnchor, constant:-12).isActive = true
     }
     
     func setupSearchTextfield() {
-        searchTextField.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        searchTextField.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        searchTextField.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        searchTextField.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        searchTextField.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor, constant: 12).isActive = true
+        searchTextField.topAnchor.constraint(equalTo: inputsContainerView.topAnchor).isActive = true
+        searchTextField.bottomAnchor.constraint(equalTo: inputsContainerView.bottomAnchor).isActive = true
+        searchTextField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
     }
     
+    func setupRightNavigationItem() {
+        navigationItem.rightBarButtonItem?.customView?.leftAnchor.constraint(equalTo: inputsContainerView.rightAnchor).isActive = true
+    }
+    
+    @objc
+    func addTapped(_ sender: UIBarButtonItem){
+        print(sender.title)
+    }
 }
