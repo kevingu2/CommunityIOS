@@ -33,7 +33,6 @@ class AvailabilityController: UICollectionViewController, UICollectionViewDelega
         collectionView?.register(MealCell.self, forCellWithReuseIdentifier: mealCellId)
         collectionView?.register(FrequencyCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
         collectionView?.register(AvailableFooterCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerId)
-        setupData()
         
         // Create PickerView
         let pickerRect = CGRect(x: 0, y: 0, width: view.frame.width, height:300)
@@ -55,6 +54,8 @@ class AvailabilityController: UICollectionViewController, UICollectionViewDelega
         super.viewDidAppear(animated)
     }
     
+    // MARK: CollectionView
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return days.count + 1
     }
@@ -66,18 +67,7 @@ class AvailabilityController: UICollectionViewController, UICollectionViewDelega
         }else{
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: dayCellId, for: indexPath)
             if let availableCell = cell as? AvailableCell {
-                if let delegate = (UIApplication.shared.delegate as? AppDelegate){
-                    let context = delegate.persistentContainer.viewContext
-                    let predicate = NSPredicate(format: "day=%@", argumentArray: [days[indexPath.row - 1]])
-                    let fetchRequest:NSFetchRequest<Availability> = Availability.fetchRequest()
-                    fetchRequest.predicate = predicate
-                    do {
-                        availableCell.availability = try(context.fetch(fetchRequest)[0])
-                    } catch{
-                        let nserror = error as NSError
-                        fatalError("Unresolved error \(nserror)")
-                    }
-                }
+                availableCell.availability = getAvailability(day: days[indexPath.row - 1])
             }
         }
         return cell

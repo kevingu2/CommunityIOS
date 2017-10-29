@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let email = defaults.string(forKey: "email")
         if email != nil {
             rootController = AvailabilityController(collectionViewLayout: UICollectionViewFlowLayout())
+            //rootController = CustomedTabBarController()
         } else{
             rootController = LoginViewController()
         }

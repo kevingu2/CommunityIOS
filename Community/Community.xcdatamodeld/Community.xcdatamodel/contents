@@ -7,6 +7,12 @@
         <attribute name="lunch" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="availability" inverseEntity="User" syncable="YES"/>
     </entity>
+    <entity name="Community" representedClassName="Community" syncable="YES" codeGenerationType="class">
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="owner" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="user" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -16,5 +22,6 @@
     <elements>
         <element name="Availability" positionX="-126" positionY="-414" width="128" height="118"/>
         <element name="User" positionX="241" positionY="18" width="128" height="105"/>
+        <element name="Community" positionX="234" positionY="-405" width="128" height="105"/>
     </elements>
 </model>

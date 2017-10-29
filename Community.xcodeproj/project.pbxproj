@@ -8,16 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		032EF0B71F6DA04F00EDDCAD /* Community.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 032EF0B51F6DA04F00EDDCAD /* Community.xcdatamodeld */; };
-		032EF0D11F6E19B800EDDCAD /* AvailabilityControllerSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EF0D01F6E19B800EDDCAD /* AvailabilityControllerSwift.swift */; };
+		032EF0D11F6E19B800EDDCAD /* AvailabilityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EF0D01F6E19B800EDDCAD /* AvailabilityData.swift */; };
 		032EF1181F6F7C1B00EDDCAD /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EF1171F6F7C1B00EDDCAD /* MealCell.swift */; };
+		03678ACC1FA4F503003A6F35 /* CommunityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03678ACB1FA4F503003A6F35 /* CommunityCell.swift */; };
+		03678ACE1FA4FBCA003A6F35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03678ACD1FA4FA5F003A6F35 /* Assets.xcassets */; };
 		037712F61F5274B800CBCD87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037712F51F5274B800CBCD87 /* AppDelegate.swift */; };
-		037712FD1F5274B800CBCD87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 037712FC1F5274B800CBCD87 /* Assets.xcassets */; };
 		037713001F5274B800CBCD87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 037712FE1F5274B800CBCD87 /* LaunchScreen.storyboard */; };
 		0377130B1F5274B800CBCD87 /* CommunityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377130A1F5274B800CBCD87 /* CommunityTests.swift */; };
 		037713161F5274B800CBCD87 /* CommunityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037713151F5274B800CBCD87 /* CommunityUITests.swift */; };
 		037713241F5346D900CBCD87 /* AvailabilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037713231F5346D900CBCD87 /* AvailabilityController.swift */; };
 		03B5EC381F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B5EC371F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift */; };
 		03C52C1F1F74E24F0016DB3C /* FrequencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C52C1E1F74E24F0016DB3C /* FrequencyCell.swift */; };
+		03CB191A1FA501EC004B215C /* CommunityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CB19191FA501EC004B215C /* CommunityData.swift */; };
+		03CB191D1FA50C81004B215C /* CommunityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CB191C1FA50C81004B215C /* CommunityDetailViewController.swift */; };
 		03CFBAFF1F90ACB0000C3CAC /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFBAFE1F90ACB0000C3CAC /* Alerts.swift */; };
 		03CFBB021F90B58F000C3CAC /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFBB011F90B58F000C3CAC /* CustomTabBarController.swift */; };
 		03CFBB081F90B690000C3CAC /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFBB071F90B690000C3CAC /* CommunityViewController.swift */; };
@@ -50,15 +53,16 @@
 
 /* Begin PBXFileReference section */
 		032EF0B61F6DA04F00EDDCAD /* Community.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Community.xcdatamodel; sourceTree = "<group>"; };
-		032EF0D01F6E19B800EDDCAD /* AvailabilityControllerSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityControllerSwift.swift; sourceTree = "<group>"; };
+		032EF0D01F6E19B800EDDCAD /* AvailabilityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityData.swift; sourceTree = "<group>"; };
 		032EF1131F6EE73C00EDDCAD /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		032EF1141F6EE73C00EDDCAD /* Availability+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Availability+CoreDataClass.swift"; sourceTree = "<group>"; };
 		032EF1151F6EE73C00EDDCAD /* Availability+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Availability+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		032EF1161F6EE73C00EDDCAD /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		032EF1171F6F7C1B00EDDCAD /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
+		03678ACB1FA4F503003A6F35 /* CommunityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCell.swift; sourceTree = "<group>"; };
+		03678ACD1FA4FA5F003A6F35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		037712F21F5274B800CBCD87 /* Community.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Community.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		037712F51F5274B800CBCD87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		037712FC1F5274B800CBCD87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		037712FF1F5274B800CBCD87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		037713011F5274B800CBCD87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		037713061F5274B800CBCD87 /* CommunityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommunityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +74,10 @@
 		037713231F5346D900CBCD87 /* AvailabilityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityController.swift; sourceTree = "<group>"; };
 		03B5EC371F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityFooterCell.swift; sourceTree = "<group>"; };
 		03C52C1E1F74E24F0016DB3C /* FrequencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyCell.swift; sourceTree = "<group>"; };
+		03CB19171FA5002C004B215C /* Community+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Community+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		03CB19181FA5002C004B215C /* Community+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Community+CoreDataClass.swift"; sourceTree = "<group>"; };
+		03CB19191FA501EC004B215C /* CommunityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityData.swift; sourceTree = "<group>"; };
+		03CB191C1FA50C81004B215C /* CommunityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailViewController.swift; sourceTree = "<group>"; };
 		03CFBAFE1F90ACB0000C3CAC /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		03CFBB011F90B58F000C3CAC /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		03CFBB071F90B690000C3CAC /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03678ACA1FA4F4E9003A6F35 /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				03678ACB1FA4F503003A6F35 /* CommunityCell.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
 		037712E91F5274B800CBCD87 = {
 			isa = PBXGroup;
 			children = (
@@ -147,10 +163,10 @@
 				037D5B771F5374D80021D3BB /* Views */,
 				037D5B751F5374C50021D3BB /* Controllers */,
 				037712F51F5274B800CBCD87 /* AppDelegate.swift */,
-				037712FC1F5274B800CBCD87 /* Assets.xcassets */,
 				037712FE1F5274B800CBCD87 /* LaunchScreen.storyboard */,
 				037713011F5274B800CBCD87 /* Info.plist */,
 				032EF0B51F6DA04F00EDDCAD /* Community.xcdatamodeld */,
+				03678ACD1FA4FA5F003A6F35 /* Assets.xcassets */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -189,6 +205,7 @@
 		037D5B771F5374D80021D3BB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				03678ACA1FA4F4E9003A6F35 /* Community */,
 				03C52C1C1F7341720016DB3C /* Availability */,
 			);
 			path = Views;
@@ -197,6 +214,7 @@
 		037D5B791F5374F10021D3BB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				03CB19161FA50024004B215C /* Community */,
 				03C52C1B1F73415B0016DB3C /* Availability */,
 				03C52C1A1F73414C0016DB3C /* User */,
 			);
@@ -236,9 +254,18 @@
 			isa = PBXGroup;
 			children = (
 				037713231F5346D900CBCD87 /* AvailabilityController.swift */,
-				032EF0D01F6E19B800EDDCAD /* AvailabilityControllerSwift.swift */,
+				032EF0D01F6E19B800EDDCAD /* AvailabilityData.swift */,
 			);
 			path = Availability;
+			sourceTree = "<group>";
+		};
+		03CB19161FA50024004B215C /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				03CB19181FA5002C004B215C /* Community+CoreDataClass.swift */,
+				03CB19171FA5002C004B215C /* Community+CoreDataProperties.swift */,
+			);
+			path = Community;
 			sourceTree = "<group>";
 		};
 		03CFBAFD1F90ACA0000C3CAC /* Util */ = {
@@ -262,6 +289,8 @@
 			isa = PBXGroup;
 			children = (
 				03CFBB071F90B690000C3CAC /* CommunityViewController.swift */,
+				03CB19191FA501EC004B215C /* CommunityData.swift */,
+				03CB191C1FA50C81004B215C /* CommunityDetailViewController.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -426,8 +455,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03678ACE1FA4FBCA003A6F35 /* Assets.xcassets in Resources */,
 				037713001F5274B800CBCD87 /* LaunchScreen.storyboard in Resources */,
-				037712FD1F5274B800CBCD87 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,16 +640,19 @@
 				03CFBB0F1F90B794000C3CAC /* ScheduleViewController.swift in Sources */,
 				03F80BF61F8989D100216BA5 /* LoginViewController.swift in Sources */,
 				03C52C1F1F74E24F0016DB3C /* FrequencyCell.swift in Sources */,
+				03678ACC1FA4F503003A6F35 /* CommunityCell.swift in Sources */,
 				032EF1181F6F7C1B00EDDCAD /* MealCell.swift in Sources */,
 				03D43ED21F65BAC100CB4817 /* AvailabilityCell.swift in Sources */,
 				03CFBB101F90B797000C3CAC /* SettingViewController.swift in Sources */,
 				037713241F5346D900CBCD87 /* AvailabilityController.swift in Sources */,
+				03CB191A1FA501EC004B215C /* CommunityData.swift in Sources */,
 				03CFBB021F90B58F000C3CAC /* CustomTabBarController.swift in Sources */,
+				03CB191D1FA50C81004B215C /* CommunityDetailViewController.swift in Sources */,
 				03CFBB121F934AA0000C3CAC /* Color.swift in Sources */,
 				037712F61F5274B800CBCD87 /* AppDelegate.swift in Sources */,
 				03CFBAFF1F90ACB0000C3CAC /* Alerts.swift in Sources */,
 				03CFBB081F90B690000C3CAC /* CommunityViewController.swift in Sources */,
-				032EF0D11F6E19B800EDDCAD /* AvailabilityControllerSwift.swift in Sources */,
+				032EF0D11F6E19B800EDDCAD /* AvailabilityData.swift in Sources */,
 				032EF0B71F6DA04F00EDDCAD /* Community.xcdatamodeld in Sources */,
 				03B5EC381F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift in Sources */,
 			);

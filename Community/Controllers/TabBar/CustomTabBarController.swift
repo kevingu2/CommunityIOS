@@ -11,7 +11,7 @@ import UIKit
 class CustomedTabBarController: UITabBarController {
     override func viewDidLoad() {
         
-        let communityViewController = CommunityViewController()
+        let communityViewController = CommunityViewController(collectionViewLayout: UICollectionViewFlowLayout())
         communityViewController.title = "Community"
         let communityNavigationController = UINavigationController(rootViewController: communityViewController)
         let settingViewController = SettingViewController()

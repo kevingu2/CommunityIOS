@@ -1,5 +1,5 @@
 //
-//  AvailabilityControllerSwift.swift
+//  AvailabilityData.swift
 //  Community
 //
 //  Created by Kevin Gu on 9/16/17.
@@ -12,9 +12,27 @@ import UIKit
 var availabilities:[Availability] = []
 let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 let USER_ID = "user_id"
+let CURR_FIRST_NAME = "Kevin"
+let CURR_LAST_NAME = "Gu"
 
 extension AvailabilityController {
     
+    func getAvailability(day: String) -> Availability{
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+            let context = delegate.persistentContainer.viewContext
+            let predicate = NSPredicate(format: "day=%@", argumentArray: [day])
+            let fetchRequest:NSFetchRequest<Availability> = Availability.fetchRequest()
+            fetchRequest.predicate = predicate
+            do {
+                return try(context.fetch(fetchRequest)[0])
+            } catch{
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror)")
+            }
+        }
+        return Availability()
+    }
+
     func setupData() {
         let userDefaults = UserDefaults()
         let userId = userDefaults.object(forKey: USER_ID)
@@ -23,8 +41,8 @@ extension AvailabilityController {
             if let delegate = (UIApplication.shared.delegate as? AppDelegate){
                 let context = delegate.persistentContainer.viewContext
                 let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as! User
-                user.firstName = "Kevin"
-                user.lastName = "Gu"
+                user.firstName = CURR_FIRST_NAME
+                user.lastName = CURR_LAST_NAME
                 user.id = 1
                 for day in days{
                     let availability = NSEntityDescription.insertNewObject(forEntityName: "Availability", into: context) as! Availability
