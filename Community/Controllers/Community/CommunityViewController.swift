@@ -10,7 +10,7 @@ import UIKit
 
 class CommunityViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
-    var currCommunties = ["Renewal", "Sunnyvale Community Group"]
+    var currCommunties: [String] = ["Renewal", "Sunnyvale Community Group"]
     var communities: [String] = []
     var allCommunities: [String] = ["Radiance", "Renewal", "Sunnyvale Community Group"]
     let communityId = "communityId"
@@ -18,7 +18,7 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
     let searchTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Search"
+        textField.placeholder = "Search for a community by name"
         return textField
     }()
     
@@ -51,11 +51,10 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
     var cancelNavigationButton: UIBarButtonItem!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = .white
         navigationItem.titleView = inputsContainerView
-        setupInputContainerView()
         inputsContainerView.addSubview(searchTextField)
-        setupSearchTextfield()
         collectionView?.backgroundColor = .white
         searchTextField.delegate = self
         
@@ -64,43 +63,52 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         collectionView?.dataSource = self
         collectionView?.register(CommunityCell.self, forCellWithReuseIdentifier: communityId)
         
-        setupCommunityView(communities: currCommunties, noCommunityMsg: "")
+        setupCommunityView(newCommunities: currCommunties, noCommunityMsg: "")
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         collectionView?.addGestureRecognizer(tap)
         
         // Setup Navigation items
-        cancelNavigationButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelTapped(_:))
-        )
+        cancelNavigationButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelTapped(_:)))
         cancelNavigationButton.tintColor = .white
         addNavigationButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addTapped(_:)))
         addNavigationButton.tintColor = .white
         navigationItem.rightBarButtonItem = addNavigationButton
+        
+        setupInputContainerView()
+        setupSearchTextfield()
+        collectionView!.addSubview(noCommunityLabel)
+        collectionView!.bringSubview(toFront: noCommunityLabel)
+        setupNoCommunityLabel()
     }
     
-    func setupCommunityView(communities: [String], noCommunityMsg: String) {
-        if communities.count == 0 {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupInputContainerView()
+        setupSearchTextfield()
+    }
+    
+    func setupCommunityView(newCommunities: [String], noCommunityMsg: String) {
+        self.communities = newCommunities
+        collectionView!.reloadData()
+        if self.communities.count == 0 {
             if noCommunityMsg != "" {
                 noCommunityLabel.text = noCommunityMsg
             }
-            if noCommunityLabel.isHidden{
-                noCommunityLabel.isHidden = false
-            } else {
-                collectionView?.addSubview(noCommunityLabel)
-                setupNoCommunityLabel()
-            }
+            noCommunityLabel.isHidden = false
+            collectionView!.addSubview(noCommunityLabel)
+            collectionView!.bringSubview(toFront: noCommunityLabel)
+            setupNoCommunityLabel()
         }
         else {
             noCommunityLabel.isHidden = true
         }
-        self.communities = communities
-        collectionView!.reloadData()
     }
     
     func setupNoCommunityLabel() {
         noCommunityLabel.centerXAnchor.constraint(equalTo: collectionView!.centerXAnchor).isActive = true
-        noCommunityLabel.widthAnchor.constraint(equalTo: collectionView!.widthAnchor, constant: -24).isActive = true
         noCommunityLabel.topAnchor.constraint(equalTo: collectionView!.topAnchor).isActive = true
+        noCommunityLabel.widthAnchor.constraint(equalTo: collectionView!.widthAnchor, constant: -24).isActive = true
         noCommunityLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
@@ -108,6 +116,7 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         inputsContainerView.centerYAnchor.constraint(equalTo: navigationController!.navigationBar.centerYAnchor).isActive = true
         inputsContainerView.leftAnchor.constraint(equalTo: navigationController!.navigationBar.leftAnchor, constant: 12).isActive = true
         inputsContainerView.heightAnchor.constraint(equalTo: navigationController!.navigationBar.heightAnchor, constant:-12).isActive = true
+        inputsContainerView.rightAnchor.constraint(lessThanOrEqualTo: navigationController!.navigationBar.rightAnchor).isActive = true
     }
     
     func setupSearchTextfield() {
@@ -121,14 +130,15 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
     
     @objc
     func addTapped(_ sender: UIBarButtonItem){
-        print(sender.title)
+        self.navigationController?.pushViewController(CreateCommunityViewController(), animated: true)
     }
     
     @objc
     func cancelTapped(_ sender: UIBarButtonItem){
-        setupCommunityView(communities: currCommunties, noCommunityMsg: "")
+        setupCommunityView(newCommunities: currCommunties, noCommunityMsg: "You are not in a community")
         navigationItem.rightBarButtonItem = addNavigationButton
         searchTextField.text = ""
+        searchTextField.resignFirstResponder()
     }
     
     @objc
@@ -177,17 +187,15 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // Set up collection View
         let msg = "No Community Found"
-        setupCommunityView(communities: filterStrings(strings: allCommunities, keyword: textField.text!), noCommunityMsg: msg)
+        setupCommunityView(newCommunities: filterStrings(strings: allCommunities, keyword: textField.text!), noCommunityMsg: msg)
+        cancelNavigationButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelTapped(_:)))
+        cancelNavigationButton.tintColor = .white
         navigationItem.rightBarButtonItem = cancelNavigationButton
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        let msg = "No Community Found"
-        setupCommunityView(communities: filterStrings(strings: allCommunities, keyword: textField.text!), noCommunityMsg: msg)
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchTextField.endEditing(true)
+        let msg = "No Community Found"
+        setupCommunityView(newCommunities: filterStrings(strings: allCommunities, keyword: textField.text!), noCommunityMsg: msg)
         return false
     }
     

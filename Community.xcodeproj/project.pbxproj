@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		031CBF8C1FA74A480012B2D4 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CBF8B1FA74A480012B2D4 /* Common.swift */; };
+		031CBF8E1FA75CC60012B2D4 /* CreateCommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CBF8D1FA75CC60012B2D4 /* CreateCommunityViewController.swift */; };
 		032EF0B71F6DA04F00EDDCAD /* Community.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 032EF0B51F6DA04F00EDDCAD /* Community.xcdatamodeld */; };
 		032EF0D11F6E19B800EDDCAD /* AvailabilityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EF0D01F6E19B800EDDCAD /* AvailabilityData.swift */; };
 		032EF1181F6F7C1B00EDDCAD /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EF1171F6F7C1B00EDDCAD /* MealCell.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		031CBF8B1FA74A480012B2D4 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		031CBF8D1FA75CC60012B2D4 /* CreateCommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCommunityViewController.swift; sourceTree = "<group>"; };
 		032EF0B61F6DA04F00EDDCAD /* Community.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Community.xcdatamodel; sourceTree = "<group>"; };
 		032EF0D01F6E19B800EDDCAD /* AvailabilityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityData.swift; sourceTree = "<group>"; };
 		032EF1131F6EE73C00EDDCAD /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				03CFBB071F90B690000C3CAC /* CommunityViewController.swift */,
 				03CB19191FA501EC004B215C /* CommunityData.swift */,
 				03CB191C1FA50C81004B215C /* CommunityDetailViewController.swift */,
+				031CBF8D1FA75CC60012B2D4 /* CreateCommunityViewController.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				03F80BF61F8989D100216BA5 /* LoginViewController.swift in Sources */,
 				03C52C1F1F74E24F0016DB3C /* FrequencyCell.swift in Sources */,
 				03678ACC1FA4F503003A6F35 /* CommunityCell.swift in Sources */,
+				031CBF8E1FA75CC60012B2D4 /* CreateCommunityViewController.swift in Sources */,
 				032EF1181F6F7C1B00EDDCAD /* MealCell.swift in Sources */,
 				03D43ED21F65BAC100CB4817 /* AvailabilityCell.swift in Sources */,
 				03CFBB101F90B797000C3CAC /* SettingViewController.swift in Sources */,
