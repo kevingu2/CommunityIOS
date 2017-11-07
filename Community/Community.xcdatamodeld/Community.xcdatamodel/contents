@@ -11,17 +11,18 @@
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="owner" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="user" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <relationship name="user" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="community" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="availability" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Availability" inverseName="user" inverseEntity="Availability" syncable="YES"/>
+        <relationship name="community" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Community" inverseName="user" inverseEntity="Community" syncable="YES"/>
     </entity>
     <elements>
         <element name="Availability" positionX="-126" positionY="-414" width="128" height="118"/>
-        <element name="User" positionX="241" positionY="18" width="128" height="105"/>
-        <element name="Community" positionX="234" positionY="-405" width="128" height="105"/>
+        <element name="Community" positionX="234" positionY="-405" width="128" height="103"/>
+        <element name="User" positionX="241" positionY="18" width="128" height="118"/>
     </elements>
 </model>

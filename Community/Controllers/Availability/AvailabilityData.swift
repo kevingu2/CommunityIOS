@@ -37,7 +37,6 @@ extension AvailabilityController {
         let userDefaults = UserDefaults()
         let userId = userDefaults.object(forKey: USER_ID)
         if userId == nil{
-            clearData()
             if let delegate = (UIApplication.shared.delegate as? AppDelegate){
                 let context = delegate.persistentContainer.viewContext
                 let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as! User

@@ -23,6 +23,7 @@ class AvailabilityController: UICollectionViewController, UICollectionViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupData()
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationItem.title = "Click on the days you are free"
         self.navigationItem.hidesBackButton = true

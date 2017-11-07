@@ -1,8 +1,8 @@
-//
+ //
 //  User+CoreDataProperties.swift
 //  
 //
-//  Created by Kevin Gu on 9/18/17.
+//  Created by Kevin Gu on 11/6/17.
 //
 //
 
@@ -17,9 +17,10 @@ extension User {
     }
 
     @NSManaged public var firstName: String?
-    @NSManaged public var lastName: String?
     @NSManaged public var id: Int64
+    @NSManaged public var lastName: String?
     @NSManaged public var availability: NSSet?
+    @NSManaged public var community: NSSet?
 
 }
 
@@ -37,5 +38,22 @@ extension User {
 
     @objc(removeAvailability:)
     @NSManaged public func removeFromAvailability(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for community
+extension User {
+
+    @objc(addCommunityObject:)
+    @NSManaged public func addToCommunity(_ value: Community)
+
+    @objc(removeCommunityObject:)
+    @NSManaged public func removeFromCommunity(_ value: Community)
+
+    @objc(addCommunity:)
+    @NSManaged public func addToCommunity(_ values: NSSet)
+
+    @objc(removeCommunity:)
+    @NSManaged public func removeFromCommunity(_ values: NSSet)
 
 }

@@ -2,7 +2,7 @@
 //  User+CoreDataClass.swift
 //  
 //
-//  Created by Kevin Gu on 9/17/17.
+//  Created by Kevin Gu on 11/6/17.
 //
 //
 

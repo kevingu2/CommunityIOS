@@ -10,10 +10,12 @@ import UIKit
 
 class CommunityViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
-    var currCommunties: [String] = ["Renewal", "Sunnyvale Community Group"]
-    var communities: [String] = []
-    var allCommunities: [String] = ["Radiance", "Renewal", "Sunnyvale Community Group"]
+    var currCommunities: [Community] = []
+    var communities: [Community]!
+    var allCommunities: [Community]!
     let communityId = "communityId"
+    var addNavigationButton: UIBarButtonItem!
+    var cancelNavigationButton: UIBarButtonItem!
     
     let searchTextField: UITextField = {
         let textField = UITextField()
@@ -47,9 +49,6 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         return label
     }()
     
-    var addNavigationButton: UIBarButtonItem!
-    var cancelNavigationButton: UIBarButtonItem!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -62,9 +61,10 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         collectionView?.delegate   = self
         collectionView?.dataSource = self
         collectionView?.register(CommunityCell.self, forCellWithReuseIdentifier: communityId)
-        
-        setupCommunityView(newCommunities: currCommunties, noCommunityMsg: "")
-        
+        let userDefaults = UserDefaults()
+        let userId = userDefaults.object(forKey: USER_ID)
+        currCommunities = CommunityManager.getUserCommunities(id: userId as! Int64)
+        setupCommunityView(newCommunities: currCommunities, noCommunityMsg: "")
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         collectionView?.addGestureRecognizer(tap)
         
@@ -80,15 +80,23 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         collectionView!.addSubview(noCommunityLabel)
         collectionView!.bringSubview(toFront: noCommunityLabel)
         setupNoCommunityLabel()
+        
+        // CommunityManager.loadCommunities()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        // Setup communities
+        let userDefaults = UserDefaults()
+        let userId = userDefaults.object(forKey: USER_ID)
+        currCommunities = CommunityManager.getUserCommunities(id: userId as! Int64)
+        setupCommunityView(newCommunities: currCommunities, noCommunityMsg: "")
+        allCommunities = CommunityManager.getAllCommunities()
         setupInputContainerView()
         setupSearchTextfield()
     }
     
-    func setupCommunityView(newCommunities: [String], noCommunityMsg: String) {
+    func setupCommunityView(newCommunities: [Community], noCommunityMsg: String) {
         self.communities = newCommunities
         collectionView!.reloadData()
         if self.communities.count == 0 {
@@ -135,7 +143,7 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
     
     @objc
     func cancelTapped(_ sender: UIBarButtonItem){
-        setupCommunityView(newCommunities: currCommunties, noCommunityMsg: "You are not in a community")
+        setupCommunityView(newCommunities: currCommunities, noCommunityMsg: "You are not in a community")
         navigationItem.rightBarButtonItem = addNavigationButton
         searchTextField.text = ""
         searchTextField.resignFirstResponder()
@@ -155,7 +163,7 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: communityId, for: indexPath) as! CommunityCell
-        cell.name = communities[indexPath.row]
+        cell.name = communities[indexPath.row].name
         return cell
     }
     
@@ -187,7 +195,7 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // Set up collection View
         let msg = "No Community Found"
-        setupCommunityView(newCommunities: filterStrings(strings: allCommunities, keyword: textField.text!), noCommunityMsg: msg)
+        setupCommunityView(newCommunities: CommunityManager.filterCommunities(communities: allCommunities, keyword: textField.text!), noCommunityMsg: msg)
         cancelNavigationButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelTapped(_:)))
         cancelNavigationButton.tintColor = .white
         navigationItem.rightBarButtonItem = cancelNavigationButton
@@ -195,7 +203,7 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let msg = "No Community Found"
-        setupCommunityView(newCommunities: filterStrings(strings: allCommunities, keyword: textField.text!), noCommunityMsg: msg)
+        setupCommunityView(newCommunities: CommunityManager.filterCommunities(communities: allCommunities, keyword: textField.text!), noCommunityMsg: msg)
         return false
     }
     

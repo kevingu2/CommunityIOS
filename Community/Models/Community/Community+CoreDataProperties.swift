@@ -2,7 +2,7 @@
 //  Community+CoreDataProperties.swift
 //  
 //
-//  Created by Kevin Gu on 10/28/17.
+//  Created by Kevin Gu on 11/5/17.
 //
 //
 
@@ -16,8 +16,8 @@ extension Community {
         return NSFetchRequest<Community>(entityName: "Community")
     }
 
-    @NSManaged public var name: String?
     @NSManaged public var details: String?
+    @NSManaged public var name: String?
     @NSManaged public var owner: Int64
     @NSManaged public var user: NSSet?
 
