@@ -6,6 +6,8 @@
 //  Copyright © 2017 kgulabs. All rights reserved.
 //
 
+import UIKit
+
 func filterStrings(strings: [String], keyword: String) -> [String] {
     var filteredStrings:[String] = []
     if keyword == "" {
@@ -17,4 +19,12 @@ func filterStrings(strings: [String], keyword: String) -> [String] {
         }
     }
     return filteredStrings
+}
+
+func addBoldText(fullString: NSString, boldPartOfString: NSString, font: UIFont!, boldFont: UIFont!) -> NSAttributedString {
+    let nonBoldFontAttribute = [NSAttributedStringKey.font:font!]
+    let boldFontAttribute = [NSAttributedStringKey.font:boldFont!]
+    let boldString = NSMutableAttributedString(string: fullString as String, attributes:nonBoldFontAttribute)
+    boldString.addAttributes(boldFontAttribute, range: fullString.range(of: boldPartOfString as String))
+    return boldString
 }

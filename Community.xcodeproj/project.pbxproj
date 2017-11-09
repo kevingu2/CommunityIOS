@@ -20,6 +20,7 @@
 		037713161F5274B800CBCD87 /* CommunityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037713151F5274B800CBCD87 /* CommunityUITests.swift */; };
 		037713241F5346D900CBCD87 /* AvailabilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037713231F5346D900CBCD87 /* AvailabilityController.swift */; };
 		0387470D1FAFDDE0003969B4 /* CommunityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0387470C1FAFDDE0003969B4 /* CommunityManager.swift */; };
+		03A54F231FB4AD80001730BC /* Exception.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A54F221FB4AD80001730BC /* Exception.swift */; };
 		03B5EC381F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B5EC371F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift */; };
 		03C52C1F1F74E24F0016DB3C /* FrequencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C52C1E1F74E24F0016DB3C /* FrequencyCell.swift */; };
 		03CB191D1FA50C81004B215C /* CommunityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CB191C1FA50C81004B215C /* CommunityDetailViewController.swift */; };
@@ -77,6 +78,7 @@
 		037713171F5274B800CBCD87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		037713231F5346D900CBCD87 /* AvailabilityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityController.swift; sourceTree = "<group>"; };
 		0387470C1FAFDDE0003969B4 /* CommunityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityManager.swift; sourceTree = "<group>"; };
+		03A54F221FB4AD80001730BC /* Exception.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exception.swift; sourceTree = "<group>"; };
 		03B5EC371F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityFooterCell.swift; sourceTree = "<group>"; };
 		03C52C1E1F74E24F0016DB3C /* FrequencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyCell.swift; sourceTree = "<group>"; };
 		03CB19171FA5002C004B215C /* Community+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Community+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				03CFBAFE1F90ACB0000C3CAC /* Alerts.swift */,
 				03CFBB111F934AA0000C3CAC /* Color.swift */,
 				031CBF8B1FA74A480012B2D4 /* Common.swift */,
+				03A54F221FB4AD80001730BC /* Exception.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				03678ACC1FA4F503003A6F35 /* CommunityCell.swift in Sources */,
 				031CBF8E1FA75CC60012B2D4 /* CreateCommunityViewController.swift in Sources */,
 				032EF1181F6F7C1B00EDDCAD /* MealCell.swift in Sources */,
+				03A54F231FB4AD80001730BC /* Exception.swift in Sources */,
 				03D43ED21F65BAC100CB4817 /* AvailabilityCell.swift in Sources */,
 				03CFBB101F90B797000C3CAC /* SettingViewController.swift in Sources */,
 				037713241F5346D900CBCD87 /* AvailabilityController.swift in Sources */,

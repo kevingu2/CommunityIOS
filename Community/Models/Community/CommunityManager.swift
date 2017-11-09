@@ -26,23 +26,12 @@ let ALL_COMMUNITIES = [
 
 class CommunityManager {
     
-    static func createCommunity(name:String, details:String, owner:Int64) {
-        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
-            let context = delegate.persistentContainer.viewContext
-            let community = NSEntityDescription.insertNewObject(forEntityName: "Community", into: context) as! Community
-            community.name = name
-            community.details = details
-            community.owner = owner
-            let user  = getUser(id: owner)
-            do {
-                community.addToUser(user!)
-                try(context.save())
-            } catch{
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror)")
-            }
-            
+    static func hasUser(community: Community, userId: Int64) -> Bool {
+        let user = getUser(id: userId)
+        if community.user?.count == 0 || user == nil{
+            return false
         }
+        return community.user!.contains(user!)
     }
     
     static func getUser(id: Int64) -> User?{
@@ -60,6 +49,7 @@ class CommunityManager {
         }
         return nil
     }
+
     
     
     static func getUserCommunities(id: Int64) -> [Community]{
@@ -134,6 +124,61 @@ class CommunityManager {
             }
         }
         return filteredCommunities
+    }
+    
+    // MARK: Context Saving
+    
+    static func leaveCommunity(community: Community, userId: Int64) throws {
+        if !hasUser(community: community, userId: userId){
+            throw MyError.RuntimeError("User is not contained in community")
+        }
+        let user = getUser(id: userId)
+        community.removeFromUser(user!)
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+            let context = delegate.persistentContainer.viewContext
+            do {
+                try(context.save())
+            } catch{
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror)")
+            }
+        }
+    }
+    
+    static func joinCommunity(community: Community, userId: Int64) throws {
+        if hasUser(community: community, userId: userId){
+            throw MyError.RuntimeError("User is already in comunity")
+        }
+        let user = getUser(id: userId)
+        community.addToUser(user!)
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+            let context = delegate.persistentContainer.viewContext
+            do {
+                try(context.save())
+            } catch{
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror)")
+            }
+        }
+    }
+    
+    static func createCommunity(name:String, details:String, owner:Int64) {
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+            let context = delegate.persistentContainer.viewContext
+            let community = NSEntityDescription.insertNewObject(forEntityName: "Community", into: context) as! Community
+            community.name = name
+            community.details = details
+            community.owner = owner
+            let user  = getUser(id: owner)
+            community.addToUser(user!)
+            do {
+                try(context.save())
+            } catch{
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror)")
+            }
+            
+        }
     }
 }
 

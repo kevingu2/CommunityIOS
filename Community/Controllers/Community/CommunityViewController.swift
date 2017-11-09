@@ -65,9 +65,7 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         let userId = userDefaults.object(forKey: USER_ID)
         currCommunities = CommunityManager.getUserCommunities(id: userId as! Int64)
         setupCommunityView(newCommunities: currCommunities, noCommunityMsg: "")
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
-        collectionView?.addGestureRecognizer(tap)
-        
+
         // Setup Navigation items
         cancelNavigationButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelTapped(_:)))
         cancelNavigationButton.tintColor = .white
@@ -185,7 +183,9 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let viewController = CommunityDetailViewController()
+        viewController.community = communities[indexPath.row]
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
