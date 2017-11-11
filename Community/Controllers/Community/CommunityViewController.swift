@@ -8,6 +8,15 @@
 
 import UIKit
 
+import UIKit
+
+class CustomTitleView: UIView {
+    
+    override var intrinsicContentSize: CGSize {
+        return UILayoutFittingExpandedSize
+    }
+}
+
 class CommunityViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
     var currCommunities: [Community] = []
@@ -20,12 +29,13 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
     let searchTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.adjustsFontSizeToFitWidth = true
         textField.placeholder = "Search for a community by name"
         return textField
     }()
     
-    let inputsContainerView: UIView = {
-        let view = UIView()
+    let inputsContainerView: CustomTitleView = {
+        let view = CustomTitleView()
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 5
@@ -73,7 +83,7 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         addNavigationButton.tintColor = .white
         navigationItem.rightBarButtonItem = addNavigationButton
         
-        setupInputContainerView()
+        //setupInputContainerView()
         setupSearchTextfield()
         collectionView!.addSubview(noCommunityLabel)
         collectionView!.bringSubview(toFront: noCommunityLabel)
@@ -82,8 +92,8 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         // CommunityManager.loadCommunities()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // Setup communities
         let userDefaults = UserDefaults()
         let userId = userDefaults.object(forKey: USER_ID)
@@ -119,10 +129,7 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
     }
     
     func setupInputContainerView() {
-        inputsContainerView.centerYAnchor.constraint(equalTo: navigationController!.navigationBar.centerYAnchor).isActive = true
-        inputsContainerView.leftAnchor.constraint(equalTo: navigationController!.navigationBar.leftAnchor, constant: 12).isActive = true
         inputsContainerView.heightAnchor.constraint(equalTo: navigationController!.navigationBar.heightAnchor, constant:-12).isActive = true
-        inputsContainerView.rightAnchor.constraint(lessThanOrEqualTo: navigationController!.navigationBar.rightAnchor).isActive = true
     }
     
     func setupSearchTextfield() {
