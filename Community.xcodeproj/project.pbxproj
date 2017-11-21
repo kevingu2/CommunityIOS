@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030041AF1FB7C58800D9A4F6 /* ScheduleInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030041AE1FB7C58800D9A4F6 /* ScheduleInfoCell.swift */; };
 		031CBF8C1FA74A480012B2D4 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CBF8B1FA74A480012B2D4 /* Common.swift */; };
 		031CBF8E1FA75CC60012B2D4 /* CreateCommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CBF8D1FA75CC60012B2D4 /* CreateCommunityViewController.swift */; };
 		032EF0B71F6DA04F00EDDCAD /* Community.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 032EF0B51F6DA04F00EDDCAD /* Community.xcdatamodeld */; };
 		032EF0D11F6E19B800EDDCAD /* AvailabilityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EF0D01F6E19B800EDDCAD /* AvailabilityData.swift */; };
 		032EF1181F6F7C1B00EDDCAD /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EF1171F6F7C1B00EDDCAD /* MealCell.swift */; };
+		035E54191FC3A29C0034829E /* Date+DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035E54181FC3A29C0034829E /* Date+DayOfWeek.swift */; };
 		03678ACC1FA4F503003A6F35 /* CommunityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03678ACB1FA4F503003A6F35 /* CommunityCell.swift */; };
 		03678ACE1FA4FBCA003A6F35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03678ACD1FA4FA5F003A6F35 /* Assets.xcassets */; };
 		037712F61F5274B800CBCD87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037712F51F5274B800CBCD87 /* AppDelegate.swift */; };
@@ -24,6 +26,8 @@
 		03B5EC381F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B5EC371F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift */; };
 		03C52C1F1F74E24F0016DB3C /* FrequencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C52C1E1F74E24F0016DB3C /* FrequencyCell.swift */; };
 		03CB191D1FA50C81004B215C /* CommunityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CB191C1FA50C81004B215C /* CommunityDetailViewController.swift */; };
+		03CFB8011FB90D840046343D /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFB8001FB90D840046343D /* DateCell.swift */; };
+		03CFB8091FB918D30046343D /* MeetupInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFB8081FB918D30046343D /* MeetupInfoManager.swift */; };
 		03CFBAFF1F90ACB0000C3CAC /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFBAFE1F90ACB0000C3CAC /* Alerts.swift */; };
 		03CFBB021F90B58F000C3CAC /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFBB011F90B58F000C3CAC /* CustomTabBarController.swift */; };
 		03CFBB081F90B690000C3CAC /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFBB071F90B690000C3CAC /* CommunityViewController.swift */; };
@@ -55,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		030041AE1FB7C58800D9A4F6 /* ScheduleInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleInfoCell.swift; sourceTree = "<group>"; };
 		031CBF8B1FA74A480012B2D4 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		031CBF8D1FA75CC60012B2D4 /* CreateCommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCommunityViewController.swift; sourceTree = "<group>"; };
 		032EF0B61F6DA04F00EDDCAD /* Community.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Community.xcdatamodel; sourceTree = "<group>"; };
@@ -64,6 +69,11 @@
 		032EF1151F6EE73C00EDDCAD /* Availability+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Availability+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		032EF1161F6EE73C00EDDCAD /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		032EF1171F6F7C1B00EDDCAD /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
+		034994D31FC3AA1700EC8680 /* MeetupInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MeetupInfo+CoreDataProperties.swift"; path = "/Users/kevingu/PersonalProjects/xcode/Community/Community/Models/MeetupInfo/MeetupInfo+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		034994D41FC3AA1700EC8680 /* MeetupInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MeetupInfo+CoreDataClass.swift"; path = "/Users/kevingu/PersonalProjects/xcode/Community/Community/Models/MeetupInfo/MeetupInfo+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		035E54161FC36A0E0034829E /* Schedule+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		035E54171FC36A0E0034829E /* Schedule+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataClass.swift"; sourceTree = "<group>"; };
+		035E54181FC3A29C0034829E /* Date+DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DayOfWeek.swift"; sourceTree = "<group>"; };
 		03678ACB1FA4F503003A6F35 /* CommunityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCell.swift; sourceTree = "<group>"; };
 		03678ACD1FA4FA5F003A6F35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		037712F21F5274B800CBCD87 /* Community.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Community.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +94,8 @@
 		03CB19171FA5002C004B215C /* Community+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Community+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		03CB19181FA5002C004B215C /* Community+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Community+CoreDataClass.swift"; sourceTree = "<group>"; };
 		03CB191C1FA50C81004B215C /* CommunityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailViewController.swift; sourceTree = "<group>"; };
+		03CFB8001FB90D840046343D /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		03CFB8081FB918D30046343D /* MeetupInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupInfoManager.swift; sourceTree = "<group>"; };
 		03CFBAFE1F90ACB0000C3CAC /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		03CFBB011F90B58F000C3CAC /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		03CFBB071F90B690000C3CAC /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +143,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		030041AD1FB7C54E00D9A4F6 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				030041AE1FB7C58800D9A4F6 /* ScheduleInfoCell.swift */,
+				03CFB8001FB90D840046343D /* DateCell.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
 		03678ACA1FA4F4E9003A6F35 /* Community */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +232,7 @@
 		037D5B771F5374D80021D3BB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				030041AD1FB7C54E00D9A4F6 /* Schedule */,
 				03678ACA1FA4F4E9003A6F35 /* Community */,
 				03C52C1C1F7341720016DB3C /* Availability */,
 			);
@@ -220,6 +242,8 @@
 		037D5B791F5374F10021D3BB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				03CFB8051FB9186C0046343D /* Schedule */,
+				03CFB8021FB918230046343D /* MeetupInfo */,
 				03CB19161FA50024004B215C /* Community */,
 				03C52C1B1F73415B0016DB3C /* Availability */,
 				03C52C1A1F73414C0016DB3C /* User */,
@@ -275,6 +299,25 @@
 			path = Community;
 			sourceTree = "<group>";
 		};
+		03CFB8021FB918230046343D /* MeetupInfo */ = {
+			isa = PBXGroup;
+			children = (
+				034994D41FC3AA1700EC8680 /* MeetupInfo+CoreDataClass.swift */,
+				034994D31FC3AA1700EC8680 /* MeetupInfo+CoreDataProperties.swift */,
+				03CFB8081FB918D30046343D /* MeetupInfoManager.swift */,
+			);
+			path = MeetupInfo;
+			sourceTree = "<group>";
+		};
+		03CFB8051FB9186C0046343D /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				035E54171FC36A0E0034829E /* Schedule+CoreDataClass.swift */,
+				035E54161FC36A0E0034829E /* Schedule+CoreDataProperties.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
 		03CFBAFD1F90ACA0000C3CAC /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +325,7 @@
 				03CFBB111F934AA0000C3CAC /* Color.swift */,
 				031CBF8B1FA74A480012B2D4 /* Common.swift */,
 				03A54F221FB4AD80001730BC /* Exception.swift */,
+				035E54181FC3A29C0034829E /* Date+DayOfWeek.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -654,10 +698,14 @@
 				032EF1181F6F7C1B00EDDCAD /* MealCell.swift in Sources */,
 				03A54F231FB4AD80001730BC /* Exception.swift in Sources */,
 				03D43ED21F65BAC100CB4817 /* AvailabilityCell.swift in Sources */,
+				03CFB8011FB90D840046343D /* DateCell.swift in Sources */,
+				03CFB8091FB918D30046343D /* MeetupInfoManager.swift in Sources */,
+				030041AF1FB7C58800D9A4F6 /* ScheduleInfoCell.swift in Sources */,
 				03CFBB101F90B797000C3CAC /* SettingViewController.swift in Sources */,
 				037713241F5346D900CBCD87 /* AvailabilityController.swift in Sources */,
 				03CFBB021F90B58F000C3CAC /* CustomTabBarController.swift in Sources */,
 				03CB191D1FA50C81004B215C /* CommunityDetailViewController.swift in Sources */,
+				035E54191FC3A29C0034829E /* Date+DayOfWeek.swift in Sources */,
 				03CFBB121F934AA0000C3CAC /* Color.swift in Sources */,
 				037712F61F5274B800CBCD87 /* AppDelegate.swift in Sources */,
 				03CFBAFF1F90ACB0000C3CAC /* Alerts.swift in Sources */,

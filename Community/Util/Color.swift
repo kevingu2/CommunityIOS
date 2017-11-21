@@ -8,3 +8,6 @@
 import UIKit
 
 let APP_COLOR = UIColor(red:0.44, green:0.94, blue:0.89, alpha:1.0)
+
+let ROW_COLORS = [UIColor(red:0.55, green:0.81, blue:0.94, alpha:1.0),
+                  UIColor(red:0.55, green:0.94, blue:0.62, alpha:1.0)]

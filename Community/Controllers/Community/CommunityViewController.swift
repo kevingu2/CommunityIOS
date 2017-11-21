@@ -61,9 +61,6 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        navigationItem.titleView = inputsContainerView
-        inputsContainerView.addSubview(searchTextField)
         collectionView?.backgroundColor = .white
         searchTextField.delegate = self
         
@@ -83,13 +80,11 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         addNavigationButton.tintColor = .white
         navigationItem.rightBarButtonItem = addNavigationButton
         
-        //setupInputContainerView()
-        setupSearchTextfield()
         collectionView!.addSubview(noCommunityLabel)
         collectionView!.bringSubview(toFront: noCommunityLabel)
         setupNoCommunityLabel()
-        
-        // CommunityManager.loadCommunities()
+        CommunityManager.clearData()
+        CommunityManager.loadCommunities()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,6 +95,8 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         currCommunities = CommunityManager.getUserCommunities(id: userId as! Int64)
         setupCommunityView(newCommunities: currCommunities, noCommunityMsg: "")
         allCommunities = CommunityManager.getAllCommunities()
+        navigationItem.titleView = inputsContainerView
+        inputsContainerView.addSubview(searchTextField)
         setupInputContainerView()
         setupSearchTextfield()
     }
@@ -129,7 +126,7 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
     }
     
     func setupInputContainerView() {
-        inputsContainerView.heightAnchor.constraint(equalTo: navigationController!.navigationBar.heightAnchor, constant:-12).isActive = true
+        navigationItem.titleView?.heightAnchor.constraint(equalToConstant: navigationController!.navigationBar.frame.height - 12).isActive = true
     }
     
     func setupSearchTextfield() {
@@ -195,10 +192,8 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-    }
-    
     // MARK: Text View Delegate Functions
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // Set up collection View
         let msg = "No Community Found"

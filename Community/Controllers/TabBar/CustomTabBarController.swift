@@ -16,9 +16,10 @@ class CustomedTabBarController: UITabBarController {
         let communityNavigationController = UINavigationController(rootViewController: communityViewController)
         let settingViewController = SettingViewController()
         settingViewController.title = "Setting"
-        let scheduleViewController = ScheduleViewController()
+        let scheduleViewController = ScheduleViewController(collectionViewLayout: UICollectionViewFlowLayout())
         scheduleViewController.title = "Schedule"
-        self.viewControllers = [communityNavigationController, scheduleViewController, settingViewController]
+        let scheduleNavigationController = UINavigationController(rootViewController: scheduleViewController)
+        self.viewControllers = [communityNavigationController, scheduleNavigationController, settingViewController]
         self.selectedViewController = communityNavigationController
         
         if let items = self.tabBar.items {

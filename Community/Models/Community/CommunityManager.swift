@@ -92,8 +92,6 @@ class CommunityManager {
     }
     
     static func clearData() {
-        let userDefaults = UserDefaults()
-        userDefaults.removeObject(forKey: USER_ID)
         if let delegate = (UIApplication.shared.delegate as? AppDelegate){
             let context = delegate.persistentContainer.viewContext
             do {
