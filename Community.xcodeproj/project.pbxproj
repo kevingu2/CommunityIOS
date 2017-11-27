@@ -22,6 +22,7 @@
 		037713161F5274B800CBCD87 /* CommunityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037713151F5274B800CBCD87 /* CommunityUITests.swift */; };
 		037713241F5346D900CBCD87 /* AvailabilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037713231F5346D900CBCD87 /* AvailabilityController.swift */; };
 		0387470D1FAFDDE0003969B4 /* CommunityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0387470C1FAFDDE0003969B4 /* CommunityManager.swift */; };
+		038ADF8C1FC4FEA100DD38A6 /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038ADF8B1FC4FEA100DD38A6 /* ScheduleDetailViewController.swift */; };
 		03A54F231FB4AD80001730BC /* Exception.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A54F221FB4AD80001730BC /* Exception.swift */; };
 		03B5EC381F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B5EC371F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift */; };
 		03C52C1F1F74E24F0016DB3C /* FrequencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C52C1E1F74E24F0016DB3C /* FrequencyCell.swift */; };
@@ -88,6 +89,7 @@
 		037713171F5274B800CBCD87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		037713231F5346D900CBCD87 /* AvailabilityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityController.swift; sourceTree = "<group>"; };
 		0387470C1FAFDDE0003969B4 /* CommunityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityManager.swift; sourceTree = "<group>"; };
+		038ADF8B1FC4FEA100DD38A6 /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
 		03A54F221FB4AD80001730BC /* Exception.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exception.swift; sourceTree = "<group>"; };
 		03B5EC371F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityFooterCell.swift; sourceTree = "<group>"; };
 		03C52C1E1F74E24F0016DB3C /* FrequencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyCell.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				03CFBB0E1F90B769000C3CAC /* ScheduleViewController.swift */,
+				038ADF8B1FC4FEA100DD38A6 /* ScheduleDetailViewController.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				03D43ED21F65BAC100CB4817 /* AvailabilityCell.swift in Sources */,
 				03CFB8011FB90D840046343D /* DateCell.swift in Sources */,
 				03CFB8091FB918D30046343D /* MeetupInfoManager.swift in Sources */,
+				038ADF8C1FC4FEA100DD38A6 /* ScheduleDetailViewController.swift in Sources */,
 				030041AF1FB7C58800D9A4F6 /* ScheduleInfoCell.swift in Sources */,
 				03CFBB101F90B797000C3CAC /* SettingViewController.swift in Sources */,
 				037713241F5346D900CBCD87 /* AvailabilityController.swift in Sources */,

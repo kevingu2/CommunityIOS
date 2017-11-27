@@ -105,6 +105,8 @@ class ScheduleViewController: UICollectionViewController, UICollectionViewDelega
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let viewController = ScheduleDetailViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
 }
