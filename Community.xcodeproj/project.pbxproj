@@ -14,6 +14,7 @@
 		032EF0D11F6E19B800EDDCAD /* AvailabilityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EF0D01F6E19B800EDDCAD /* AvailabilityData.swift */; };
 		032EF1181F6F7C1B00EDDCAD /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EF1171F6F7C1B00EDDCAD /* MealCell.swift */; };
 		035E54191FC3A29C0034829E /* Date+DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035E54181FC3A29C0034829E /* Date+DayOfWeek.swift */; };
+		0360A2EA201A04070062A2F5 /* InfoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360A2E9201A04070062A2F5 /* InfoContainer.swift */; };
 		03678ACC1FA4F503003A6F35 /* CommunityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03678ACB1FA4F503003A6F35 /* CommunityCell.swift */; };
 		03678ACE1FA4FBCA003A6F35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03678ACD1FA4FA5F003A6F35 /* Assets.xcassets */; };
 		037712F61F5274B800CBCD87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037712F51F5274B800CBCD87 /* AppDelegate.swift */; };
@@ -75,6 +76,7 @@
 		035E54161FC36A0E0034829E /* Schedule+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		035E54171FC36A0E0034829E /* Schedule+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataClass.swift"; sourceTree = "<group>"; };
 		035E54181FC3A29C0034829E /* Date+DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DayOfWeek.swift"; sourceTree = "<group>"; };
+		0360A2E9201A04070062A2F5 /* InfoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoContainer.swift; sourceTree = "<group>"; };
 		03678ACB1FA4F503003A6F35 /* CommunityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCell.swift; sourceTree = "<group>"; };
 		03678ACD1FA4FA5F003A6F35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		037712F21F5274B800CBCD87 /* Community.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Community.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,7 @@
 			children = (
 				030041AE1FB7C58800D9A4F6 /* ScheduleInfoCell.swift */,
 				03CFB8001FB90D840046343D /* DateCell.swift */,
+				0360A2E9201A04070062A2F5 /* InfoContainer.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -716,6 +719,7 @@
 				03CFBB081F90B690000C3CAC /* CommunityViewController.swift in Sources */,
 				031CBF8C1FA74A480012B2D4 /* Common.swift in Sources */,
 				0387470D1FAFDDE0003969B4 /* CommunityManager.swift in Sources */,
+				0360A2EA201A04070062A2F5 /* InfoContainer.swift in Sources */,
 				032EF0D11F6E19B800EDDCAD /* AvailabilityData.swift in Sources */,
 				032EF0B71F6DA04F00EDDCAD /* Community.xcdatamodeld in Sources */,
 				03B5EC381F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift in Sources */,

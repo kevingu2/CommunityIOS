@@ -21,29 +21,6 @@ class ScheduleDetailViewController: UIViewController {
         return imageView
     }()
     
-    let dateView: UIStackView = {
-        let view = UIStackView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.axis = .horizontal
-        return view
-    }()
-    
-    let calendarView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "calendar")
-        return imageView
-    }()
-    
-    let dateLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "12/16/2017 (Sat)"
-        label.textAlignment = .center
-        return label
-    }()
-    
     let infoContainer: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -56,34 +33,40 @@ class ScheduleDetailViewController: UIViewController {
     let titleView: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "TEST"
+        label.text = "DishDash"
         label.textAlignment = .center
         label.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
-    let timeView: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .blue
-        label.text = "TEST"
-        return label
+    let timeView: InfoContainer = {
+        let view = InfoContainer()
+        view.iconName =  "calendar"
+        view.detail = "11:30 AM - 12:30 PM"
+        return view
     }()
     
-    let locationView: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .blue
-        label.text = "TEST"
-        return label
+    let locationView:InfoContainer = {
+        let view = InfoContainer()
+        view.iconName =  "calendar"
+        view.detail = "190 S Murphy Ave, Sunnyvale, CA 94086"
+        return view
     }()
     
-    let typeFoodView: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .blue
-        label.text = "TEST"
-        return label
+    let typeFoodView: InfoContainer = {
+        let view = InfoContainer()
+        view.iconName =  "calendar"
+        view.detail = "Middle Eastern, Mediterranean"
+        return view
+    }()
+    
+    let dateView: InfoContainer = {
+        let dateView = InfoContainer()
+        dateView.iconName =  "calendar"
+        dateView.detail = "12/16/2017 (Sat)"
+        return dateView
     }()
     
     override func viewDidLoad() {
@@ -92,7 +75,7 @@ class ScheduleDetailViewController: UIViewController {
         imageView.image = UIImage(named: userImage)
         view.addSubview(imageView)
         view.addSubview(infoContainer)
-        stackView = UIStackView(arrangedSubviews: [titleView, dateView, locationView, typeFoodView])
+        stackView = UIStackView(arrangedSubviews: [titleView, dateView, timeView, locationView, typeFoodView])
         infoContainer.addSubview(stackView)
         setupProfileImageView()
         setupStackView()
@@ -114,21 +97,16 @@ class ScheduleDetailViewController: UIViewController {
         imageView.bottomAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
-    func setupDateView() {
-        dateView.addArrangedSubview(calendarView)
-        dateView.addArrangedSubview(dateLabel)
-        calendarView.leftAnchor.constraint(equalTo: infoContainer.leftAnchor).isActive = true
-    }
     
     func setupStackView() {
         setupInfoContainer()
-        setupDateView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
+        stackView.spacing = 10
         stackView.topAnchor.constraint(equalTo: infoContainer.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: infoContainer.bottomAnchor).isActive = true
-        stackView.leftAnchor.constraint(equalTo: infoContainer.leftAnchor).isActive = true
-        stackView.rightAnchor.constraint(equalTo: infoContainer.rightAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: infoContainer.bottomAnchor, constant: -24).isActive = true
+        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -48).isActive = true
     }
 }
