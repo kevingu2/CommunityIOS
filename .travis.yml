@@ -1,0 +1,4 @@
+language: swift
+xcode_project: Community.xcworkspace
+xcode_scheme: CommunityUITests
+osx_image: xcode9.2
