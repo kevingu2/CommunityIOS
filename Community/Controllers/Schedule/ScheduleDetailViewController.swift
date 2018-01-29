@@ -35,7 +35,7 @@ class ScheduleDetailViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "DishDash"
         label.textAlignment = .center
-        label.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 30.0)
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
         return label
@@ -43,21 +43,21 @@ class ScheduleDetailViewController: UIViewController {
     
     let timeView: InfoContainer = {
         let view = InfoContainer()
-        view.iconName =  "calendar"
+        view.iconName =  "time"
         view.detail = "11:30 AM - 12:30 PM"
         return view
     }()
     
     let locationView:InfoContainer = {
         let view = InfoContainer()
-        view.iconName =  "calendar"
+        view.iconName =  "location"
         view.detail = "190 S Murphy Ave, Sunnyvale, CA 94086"
         return view
     }()
     
     let typeFoodView: InfoContainer = {
         let view = InfoContainer()
-        view.iconName =  "calendar"
+        view.iconName =  "food_type"
         view.detail = "Middle Eastern, Mediterranean"
         return view
     }()
