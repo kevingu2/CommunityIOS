@@ -10,7 +10,7 @@ import UIKit
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDelegate {
-    typealias fbGetEmailCompletionHandler = (_ email:String, _ error: String?) -> Void
+    typealias FBGetEmailCompletionHandler = (_ email:String, _ error: String?) -> Void
     
     let inputsContainerView: UIView = {
         let view = UIView()
@@ -44,7 +44,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     
     let usernameSeparatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(r: 220, b: 220, g: 220)
+        view.backgroundColor = UIColor(red: 220, blue: 220, green: 220)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -59,7 +59,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     
     let passwordSeparatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(r: 220, b: 220, g: 220)
+        view.backgroundColor = UIColor(red: 220, blue: 220, green: 220)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -215,7 +215,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         }
     }
     
-    func getEmailAddress(completionHandler: @escaping fbGetEmailCompletionHandler) {
+    func getEmailAddress(completionHandler: @escaping FBGetEmailCompletionHandler) {
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, error) in
             if error != nil {
                 let requestError = "Failed to start graph request \(String(describing: error))"
@@ -238,7 +238,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
 }
 
 extension UIColor {
-    convenience init(r: CGFloat, b: CGFloat, g: CGFloat) {
-        self.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
+    convenience init(red: CGFloat, blue: CGFloat, green: CGFloat) {
+        self.init(red: red/255, green: green/255, blue: blue/255, alpha: 1)
     }
 }

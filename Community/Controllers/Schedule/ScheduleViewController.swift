@@ -55,7 +55,7 @@ class ScheduleViewController: UICollectionViewController, UICollectionViewDelega
             return cell
         } else if let meetupInfo = schedules[indexPath.row] as? MeetupInfo{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: scheduleId, for: indexPath) as! SchedueInfoCell
-            cell.backgroundColor = ROW_COLORS[indexPath.row % 2]
+            cell.backgroundColor = kRowColors[indexPath.row % 2]
             var hour = 12
             if meetupInfo.time != 12 {
                 hour = Int(meetupInfo.time % 12)
@@ -67,7 +67,7 @@ class ScheduleViewController: UICollectionViewController, UICollectionViewDelega
                 period = "PM"
             }
             cell.time = "\(hour):00 \(period)"
-            let restarauntName: String = meetupInfo.restaraunt_name!
+            let restarauntName: String = meetupInfo.restarauntName!
             let userFirstName: String = meetupInfo.user!.firstName!
             var mealPeriod = ""
             if hour >= 18 {

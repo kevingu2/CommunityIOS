@@ -9,7 +9,7 @@
 import CoreData
 import UIKit
 
-let ALL_COMMUNITIES = [
+let allCommunities = [
     [
         "name": "Community 1",
         "details": "Details 1"
@@ -76,7 +76,7 @@ class CommunityManager {
     static func loadCommunities() {
         if let delegate = (UIApplication.shared.delegate as? AppDelegate){
             let context = delegate.persistentContainer.viewContext
-            for allComunity in ALL_COMMUNITIES {
+            for allComunity in allCommunities {
                 let community = NSEntityDescription.insertNewObject(forEntityName: "Community", into: context) as! Community
                 community.name = allComunity["name"]
                 community.details = allComunity["details"]
@@ -128,7 +128,7 @@ class CommunityManager {
     
     static func leaveCommunity(community: Community, userId: Int64) throws {
         if !hasUser(community: community, userId: userId){
-            throw MyError.RuntimeError("User is not contained in community")
+            throw MyError.runtimeError("User is not contained in community")
         }
         let user = getUser(id: userId)
         community.removeFromUser(user!)
@@ -145,7 +145,7 @@ class CommunityManager {
     
     static func joinCommunity(community: Community, userId: Int64) throws {
         if hasUser(community: community, userId: userId){
-            throw MyError.RuntimeError("User is already in comunity")
+            throw MyError.runtimeError("User is already in comunity")
         }
         let user = getUser(id: userId)
         community.addToUser(user!)

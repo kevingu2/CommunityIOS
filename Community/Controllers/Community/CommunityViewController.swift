@@ -69,7 +69,7 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         collectionView?.dataSource = self
         collectionView?.register(CommunityCell.self, forCellWithReuseIdentifier: communityId)
         let userDefaults = UserDefaults()
-        let userId = userDefaults.object(forKey: USER_ID)
+        let userId = userDefaults.object(forKey: kUserId)
         currCommunities = CommunityManager.getUserCommunities(id: userId as! Int64)
         setupCommunityView(newCommunities: currCommunities, noCommunityMsg: "")
 
@@ -91,7 +91,7 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         super.viewWillAppear(animated)
         // Setup communities
         let userDefaults = UserDefaults()
-        let userId = userDefaults.object(forKey: USER_ID)
+        let userId = userDefaults.object(forKey: kUserId)
         currCommunities = CommunityManager.getUserCommunities(id: userId as! Int64)
         setupCommunityView(newCommunities: currCommunities, noCommunityMsg: "")
         allCommunities = CommunityManager.getAllCommunities()

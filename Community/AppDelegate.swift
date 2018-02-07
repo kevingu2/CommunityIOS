@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         window?.rootViewController = UINavigationController(rootViewController: rootController)
         let navigationBarAppearace = UINavigationBar.appearance()
-        navigationBarAppearace.barTintColor = APP_COLOR
+        navigationBarAppearace.barTintColor = kAppColor
         let titleDict = [NSAttributedStringKey.foregroundColor: UIColor.white]
         navigationBarAppearace.titleTextAttributes = titleDict
         
