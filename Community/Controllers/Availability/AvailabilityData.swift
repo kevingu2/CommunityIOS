@@ -39,22 +39,24 @@ extension AvailabilityController {
         if userId == nil{
             if let delegate = (UIApplication.shared.delegate as? AppDelegate){
                 let context = delegate.persistentContainer.viewContext
-                let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as! User
-                user.firstName = kCurrentFirstName
-                user.lastName = kCurrentLastName
-                user.id = 1
-                for day in days{
-                    let availability = NSEntityDescription.insertNewObject(forEntityName: "Availability", into: context) as! Availability
-                    availability.day = day
-                    availability.user = user
+                if let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as? User {
+                    user.firstName = kCurrentFirstName
+                    user.lastName = kCurrentLastName
+                    user.id = 1
+                    for day in days{
+                        if let availability = NSEntityDescription.insertNewObject(forEntityName: "Availability", into: context) as? Availability {
+                            availability.day = day
+                            availability.user = user
+                        }
+                    }
+                    do {
+                        try(context.save())
+                    } catch{
+                        let nserror = error as NSError
+                        fatalError("Unresolved error \(nserror)")
+                    }
+                    userDefaults.set(user.id, forKey: "user_id")
                 }
-                do {
-                    try(context.save())
-                } catch{
-                    let nserror = error as NSError
-                    fatalError("Unresolved error \(nserror)")
-                }
-                userDefaults.set(user.id, forKey: "user_id")
             } else {
                 fatalError("Unresolved error to initialize context")
             }

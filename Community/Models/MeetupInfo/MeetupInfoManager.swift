@@ -68,36 +68,46 @@ class MeetupInfoManager {
             let context = delegate.persistentContainer.viewContext
             let today = Date()
             let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)
-            let schedule = NSEntityDescription.insertNewObject(forEntityName: "Schedule", into: context) as! Schedule
-            schedule.date = tomorrow
-            for meetupInfoDic in kMeetUPInfoDay1 {
-                let meetupInfo = NSEntityDescription.insertNewObject(forEntityName: "MeetupInfo", into: context) as! MeetupInfo
-                meetupInfo.address = meetupInfoDic["address"] as? String
-                meetupInfo.restarauntName = meetupInfoDic["restaraunt_name"] as? String
-                meetupInfo.foodType = meetupInfoDic["food_type"] as? String
-                meetupInfo.time = Int16(meetupInfoDic["time"] as! Int)
-                let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as!
-                    User
-                user.firstName = meetupInfoDic["first_name"] as? String
-                user.lastName = meetupInfoDic["last_name"] as? String
-                meetupInfo.user = user
-                schedule.addToMeetupInfo(meetupInfo)
+            if let schedule = NSEntityDescription.insertNewObject(forEntityName: "Schedule", into: context) as? Schedule {
+                schedule.date = tomorrow
+                for meetupInfoDic in kMeetUPInfoDay1 {
+                    if let meetupInfo = NSEntityDescription.insertNewObject(forEntityName: "MeetupInfo", into: context) as? MeetupInfo {
+                        meetupInfo.address = meetupInfoDic["address"] as? String
+                        meetupInfo.restarauntName = meetupInfoDic["restaraunt_name"] as? String
+                        meetupInfo.foodType = meetupInfoDic["food_type"] as? String
+                        if let time = meetupInfoDic["time"] as? Int {
+                            meetupInfo.time = Int16(time)
+                        }
+                        if let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as?
+                            User {
+                            user.firstName = meetupInfoDic["first_name"] as? String
+                            user.lastName = meetupInfoDic["last_name"] as? String
+                            meetupInfo.user = user
+                            schedule.addToMeetupInfo(meetupInfo)
+                        }
+                    }
+                }
             }
             for meetupInfoDic in kMeetUPInfoDay2 {
-                let schedule2 = NSEntityDescription.insertNewObject(forEntityName: "Schedule", into: context) as! Schedule
-                let weekAhead = Calendar.current.date(byAdding: .day, value: 7, to: today)
-                schedule2.date = weekAhead
-                let meetupInfo = NSEntityDescription.insertNewObject(forEntityName: "MeetupInfo", into: context) as! MeetupInfo
-                meetupInfo.address = meetupInfoDic["address"] as? String
-                meetupInfo.restarauntName = meetupInfoDic["restaraunt_name"] as? String
-                meetupInfo.foodType = meetupInfoDic["food_type"] as? String
-                meetupInfo.time = Int16(meetupInfoDic["time"] as! Int)
-                let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as!
-                User
-                user.firstName = meetupInfoDic["first_name"] as? String
-                user.lastName = meetupInfoDic["last_name"] as? String
-                meetupInfo.user = user
-                schedule2.addToMeetupInfo(meetupInfo)
+                if let schedule2 = NSEntityDescription.insertNewObject(forEntityName: "Schedule", into: context) as? Schedule {
+                    let weekAhead = Calendar.current.date(byAdding: .day, value: 7, to: today)
+                    schedule2.date = weekAhead
+                    if let meetupInfo = NSEntityDescription.insertNewObject(forEntityName: "MeetupInfo", into: context) as? MeetupInfo {
+                        meetupInfo.address = meetupInfoDic["address"] as? String
+                        meetupInfo.restarauntName = meetupInfoDic["restaraunt_name"] as? String
+                        meetupInfo.foodType = meetupInfoDic["food_type"] as? String
+                        if let time = meetupInfoDic["time"] as? Int {
+                            meetupInfo.time = Int16(time)
+                        }
+                        if let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as?
+                            User {
+                            user.firstName = meetupInfoDic["first_name"] as? String
+                            user.lastName = meetupInfoDic["last_name"] as? String
+                            meetupInfo.user = user
+                            schedule2.addToMeetupInfo(meetupInfo)
+                        }
+                    }
+                }
             }
             do {
                 try(context.save())

@@ -45,40 +45,42 @@ class ScheduleViewController: UICollectionViewController, UICollectionViewDelega
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let schedule = schedules[indexPath.row] as? Schedule {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: dateId, for: indexPath) as! DateCell
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM-dd-yyyy"
-            let scheduleDay = schedule.date
-            let day:String = scheduleDay!.dayOfWeek()!
-            let dateString = dateFormatter.string(from: scheduleDay!)
-            cell.date = "\(dateString) (\(day))"
-            return cell
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: dateId, for: indexPath) as? DateCell {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM-dd-yyyy"
+                let scheduleDay = schedule.date
+                let day:String = scheduleDay!.dayOfWeek()!
+                let dateString = dateFormatter.string(from: scheduleDay!)
+                cell.date = "\(dateString) (\(day))"
+                return cell
+            }
         } else if let meetupInfo = schedules[indexPath.row] as? MeetupInfo{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: scheduleId, for: indexPath) as! SchedueInfoCell
-            cell.backgroundColor = kRowColors[indexPath.row % 2]
-            var hour = 12
-            if meetupInfo.time != 12 {
-                hour = Int(meetupInfo.time % 12)
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: scheduleId, for: indexPath) as? SchedueInfoCell{
+                cell.backgroundColor = kRowColors[indexPath.row % 2]
+                var hour = 12
+                if meetupInfo.time != 12 {
+                    hour = Int(meetupInfo.time % 12)
+                }
+                var period = ""
+                if meetupInfo.time/12 < 1 {
+                    period = "AM"
+                } else {
+                    period = "PM"
+                }
+                cell.time = "\(hour):00 \(period)"
+                let restarauntName: String = meetupInfo.restarauntName!
+                let userFirstName: String = meetupInfo.user!.firstName!
+                var mealPeriod = ""
+                if hour >= 18 {
+                    mealPeriod = "Dinner"
+                } else if hour >= 12 {
+                    mealPeriod = "Lunch"
+                } else if hour >= 6 {
+                    mealPeriod = "Breakfast"
+                }
+                cell.info = "\(mealPeriod) with \(userFirstName) at \(restarauntName)"
+                return cell
             }
-            var period = ""
-            if meetupInfo.time/12 < 1 {
-                period = "AM"
-            } else {
-                period = "PM"
-            }
-            cell.time = "\(hour):00 \(period)"
-            let restarauntName: String = meetupInfo.restarauntName!
-            let userFirstName: String = meetupInfo.user!.firstName!
-            var mealPeriod = ""
-            if hour >= 18 {
-                mealPeriod = "Dinner"
-            } else if hour >= 12 {
-                mealPeriod = "Lunch"
-            } else if hour >= 6 {
-                mealPeriod = "Breakfast"
-            }
-            cell.info = "\(mealPeriod) with \(userFirstName) at \(restarauntName)"
-            return cell
         }
         return UICollectionViewCell()
     }

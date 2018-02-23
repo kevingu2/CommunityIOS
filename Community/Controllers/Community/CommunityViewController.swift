@@ -70,7 +70,9 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         collectionView?.register(CommunityCell.self, forCellWithReuseIdentifier: communityId)
         let userDefaults = UserDefaults()
         let userId = userDefaults.object(forKey: kUserId)
-        currCommunities = CommunityManager.getUserCommunities(id: userId as! Int64)
+        if let id = userId as? Int64 {
+            currCommunities = CommunityManager.getUserCommunities(id: id)
+        }
         setupCommunityView(newCommunities: currCommunities, noCommunityMsg: "")
 
         // Setup Navigation items
@@ -92,7 +94,9 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         // Setup communities
         let userDefaults = UserDefaults()
         let userId = userDefaults.object(forKey: kUserId)
-        currCommunities = CommunityManager.getUserCommunities(id: userId as! Int64)
+        if let id = userId as? Int64 {
+            currCommunities = CommunityManager.getUserCommunities(id: id)
+        }
         setupCommunityView(newCommunities: currCommunities, noCommunityMsg: "")
         allCommunities = CommunityManager.getAllCommunities()
         navigationItem.titleView = inputsContainerView
@@ -164,8 +168,10 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: communityId, for: indexPath) as! CommunityCell
-        cell.name = communities[indexPath.row].name
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: communityId, for: indexPath)
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: communityId, for: indexPath) as? CommunityCell {
+            cell.name = communities[indexPath.row].name
+        }
         return cell
     }
     

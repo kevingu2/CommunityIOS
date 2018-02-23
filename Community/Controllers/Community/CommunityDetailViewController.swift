@@ -45,7 +45,8 @@ class CommunityDetailViewController: UIViewController {
         setupDescriptionLabel()
         let userDefaults = UserDefaults()
         let userId = userDefaults.object(forKey: kUserId)
-        if CommunityManager.hasUser(community: community, userId: userId as! Int64) {
+        if let id = userId as? Int64 {
+            CommunityManager.hasUser(community: community, userId: id)
             joinLeaveButton.addTarget(self, action: #selector(self.leaveCommunity(_:)), for: .touchUpInside)
             joinLeaveButton.setTitle("Leave Community", for: .normal)
         } else{
@@ -77,8 +78,10 @@ class CommunityDetailViewController: UIViewController {
         let userDefaults = UserDefaults()
         let userId = userDefaults.object(forKey: kUserId)
         do {
-            try CommunityManager.leaveCommunity(community: community, userId: userId as! Int64)
-            self.navigationController?.popViewController(animated: true)
+            if let id = userId as? Int64 {
+                try CommunityManager.leaveCommunity(community: community, userId: id)
+                self.navigationController?.popViewController(animated: true)
+            }
         } catch MyError.runtimeError(let errorMessage) {
             print(errorMessage)
         }catch {
@@ -90,8 +93,10 @@ class CommunityDetailViewController: UIViewController {
         let userDefaults = UserDefaults()
         let userId = userDefaults.object(forKey: kUserId)
         do {
-            try CommunityManager.joinCommunity(community: community, userId: userId as! Int64)
-            self.navigationController?.popViewController(animated: true)
+            if let id = userId as? Int64 {
+                try CommunityManager.joinCommunity(community: community, userId: id)
+                self.navigationController?.popViewController(animated: true)
+            }
         } catch MyError.runtimeError(let errorMessage) {
             print(errorMessage)
         }catch {

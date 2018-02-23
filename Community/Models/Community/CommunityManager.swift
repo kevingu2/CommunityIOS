@@ -54,7 +54,10 @@ class CommunityManager {
     
     static func getUserCommunities(id: Int64) -> [Community]{
         let user = getUser(id: id)
-        return user?.community?.allObjects as! [Community]
+        if let communities = user?.community?.allObjects as? [Community]{
+            return communities
+        }
+        return []
     }
     
     static func getAllCommunities() -> [Community]{
@@ -77,15 +80,16 @@ class CommunityManager {
         if let delegate = (UIApplication.shared.delegate as? AppDelegate){
             let context = delegate.persistentContainer.viewContext
             for allComunity in allCommunities {
-                let community = NSEntityDescription.insertNewObject(forEntityName: "Community", into: context) as! Community
-                community.name = allComunity["name"]
-                community.details = allComunity["details"]
-                community.owner = 1
-                do {
-                    try(context.save())
-                } catch{
-                    let nserror = error as NSError
-                    fatalError("Unresolved error \(nserror)")
+                if let community = NSEntityDescription.insertNewObject(forEntityName: "Community", into: context) as? Community {
+                    community.name = allComunity["name"]
+                    community.details = allComunity["details"]
+                    community.owner = 1
+                    do {
+                        try(context.save())
+                    } catch{
+                        let nserror = error as NSError
+                        fatalError("Unresolved error \(nserror)")
+                    }
                 }
             }
         }
@@ -160,22 +164,22 @@ class CommunityManager {
         }
     }
     
-    static func createCommunity(name:String, details:String, owner:Int64) {
-        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+    static func createCommunity(name: String, details: String, owner: Int64) {
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate) {
             let context = delegate.persistentContainer.viewContext
-            let community = NSEntityDescription.insertNewObject(forEntityName: "Community", into: context) as! Community
-            community.name = name
-            community.details = details
-            community.owner = owner
-            let user  = getUser(id: owner)
-            community.addToUser(user!)
-            do {
-                try(context.save())
-            } catch{
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror)")
+            if let community = NSEntityDescription.insertNewObject(forEntityName: "Community", into: context) as? Community {
+                community.name = name
+                community.details = details
+                community.owner = owner
+                let user  = getUser(id: owner)
+                community.addToUser(user!)
+                do {
+                    try(context.save())
+                } catch{
+                    let nserror = error as NSError
+                    fatalError("Unresolved error \(nserror)")
+                }
             }
-            
         }
     }
 }
