@@ -9,7 +9,7 @@
 import CoreData
 import UIKit
 
-let ALL_COMMUNITIES = [
+let allCommunities = [
     [
         "name": "Community 1",
         "details": "Details 1"
@@ -54,7 +54,10 @@ class CommunityManager {
     
     static func getUserCommunities(id: Int64) -> [Community]{
         let user = getUser(id: id)
-        return user?.community?.allObjects as! [Community]
+        if let communities = user?.community?.allObjects as? [Community]{
+            return communities
+        }
+        return []
     }
     
     static func getAllCommunities() -> [Community]{
@@ -76,16 +79,17 @@ class CommunityManager {
     static func loadCommunities() {
         if let delegate = (UIApplication.shared.delegate as? AppDelegate){
             let context = delegate.persistentContainer.viewContext
-            for allComunity in ALL_COMMUNITIES {
-                let community = NSEntityDescription.insertNewObject(forEntityName: "Community", into: context) as! Community
-                community.name = allComunity["name"]
-                community.details = allComunity["details"]
-                community.owner = 1
-                do {
-                    try(context.save())
-                } catch{
-                    let nserror = error as NSError
-                    fatalError("Unresolved error \(nserror)")
+            for allComunity in allCommunities {
+                if let community = NSEntityDescription.insertNewObject(forEntityName: "Community", into: context) as? Community {
+                    community.name = allComunity["name"]
+                    community.details = allComunity["details"]
+                    community.owner = 1
+                    do {
+                        try(context.save())
+                    } catch{
+                        let nserror = error as NSError
+                        fatalError("Unresolved error \(nserror)")
+                    }
                 }
             }
         }
@@ -128,7 +132,7 @@ class CommunityManager {
     
     static func leaveCommunity(community: Community, userId: Int64) throws {
         if !hasUser(community: community, userId: userId){
-            throw MyError.RuntimeError("User is not contained in community")
+            throw MyError.runtimeError("User is not contained in community")
         }
         let user = getUser(id: userId)
         community.removeFromUser(user!)
@@ -145,7 +149,7 @@ class CommunityManager {
     
     static func joinCommunity(community: Community, userId: Int64) throws {
         if hasUser(community: community, userId: userId){
-            throw MyError.RuntimeError("User is already in comunity")
+            throw MyError.runtimeError("User is already in comunity")
         }
         let user = getUser(id: userId)
         community.addToUser(user!)
@@ -160,22 +164,22 @@ class CommunityManager {
         }
     }
     
-    static func createCommunity(name:String, details:String, owner:Int64) {
-        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+    static func createCommunity(name: String, details: String, owner: Int64) {
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate) {
             let context = delegate.persistentContainer.viewContext
-            let community = NSEntityDescription.insertNewObject(forEntityName: "Community", into: context) as! Community
-            community.name = name
-            community.details = details
-            community.owner = owner
-            let user  = getUser(id: owner)
-            community.addToUser(user!)
-            do {
-                try(context.save())
-            } catch{
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror)")
+            if let community = NSEntityDescription.insertNewObject(forEntityName: "Community", into: context) as? Community {
+                community.name = name
+                community.details = details
+                community.owner = owner
+                let user  = getUser(id: owner)
+                community.addToUser(user!)
+                do {
+                    try(context.save())
+                } catch{
+                    let nserror = error as NSError
+                    fatalError("Unresolved error \(nserror)")
+                }
             }
-            
         }
     }
 }

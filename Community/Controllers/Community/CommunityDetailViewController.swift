@@ -24,7 +24,7 @@ class CommunityDetailViewController: UIViewController {
     
     let joinLeaveButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = APP_COLOR
+        button.backgroundColor = kAppColor
         button.setTitle("Leave Community", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -44,8 +44,9 @@ class CommunityDetailViewController: UIViewController {
         view.addSubview(descriptionLabel)
         setupDescriptionLabel()
         let userDefaults = UserDefaults()
-        let userId = userDefaults.object(forKey: USER_ID)
-        if CommunityManager.hasUser(community: community, userId: userId as! Int64) {
+        let userId = userDefaults.object(forKey: kUserId)
+        if let id = userId as? Int64 {
+            CommunityManager.hasUser(community: community, userId: id)
             joinLeaveButton.addTarget(self, action: #selector(self.leaveCommunity(_:)), for: .touchUpInside)
             joinLeaveButton.setTitle("Leave Community", for: .normal)
         } else{
@@ -75,11 +76,13 @@ class CommunityDetailViewController: UIViewController {
     @objc
     func leaveCommunity(_ sender: UIButton) {
         let userDefaults = UserDefaults()
-        let userId = userDefaults.object(forKey: USER_ID)
+        let userId = userDefaults.object(forKey: kUserId)
         do {
-            try CommunityManager.leaveCommunity(community: community, userId: userId as! Int64)
-            self.navigationController?.popViewController(animated: true)
-        } catch MyError.RuntimeError(let errorMessage) {
+            if let id = userId as? Int64 {
+                try CommunityManager.leaveCommunity(community: community, userId: id)
+                self.navigationController?.popViewController(animated: true)
+            }
+        } catch MyError.runtimeError(let errorMessage) {
             print(errorMessage)
         }catch {
             
@@ -88,11 +91,13 @@ class CommunityDetailViewController: UIViewController {
     @objc
     func joinCommunity(_ sender: UIButton) {
         let userDefaults = UserDefaults()
-        let userId = userDefaults.object(forKey: USER_ID)
+        let userId = userDefaults.object(forKey: kUserId)
         do {
-            try CommunityManager.joinCommunity(community: community, userId: userId as! Int64)
-            self.navigationController?.popViewController(animated: true)
-        } catch MyError.RuntimeError(let errorMessage) {
+            if let id = userId as? Int64 {
+                try CommunityManager.joinCommunity(community: community, userId: id)
+                self.navigationController?.popViewController(animated: true)
+            }
+        } catch MyError.runtimeError(let errorMessage) {
             print(errorMessage)
         }catch {
             

@@ -2,3 +2,9 @@ language: swift
 xcode_project: Community.xcworkspace
 xcode_scheme: CommunityUITests
 osx_image: xcode9.2
+
+jobs:
+  include:
+    - stage: Swiflint
+      script:
+        - ./Pods/SwiftLint/swiftlint --reporter junit

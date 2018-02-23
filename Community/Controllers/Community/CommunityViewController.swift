@@ -69,8 +69,10 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         collectionView?.dataSource = self
         collectionView?.register(CommunityCell.self, forCellWithReuseIdentifier: communityId)
         let userDefaults = UserDefaults()
-        let userId = userDefaults.object(forKey: USER_ID)
-        currCommunities = CommunityManager.getUserCommunities(id: userId as! Int64)
+        let userId = userDefaults.object(forKey: kUserId)
+        if let id = userId as? Int64 {
+            currCommunities = CommunityManager.getUserCommunities(id: id)
+        }
         setupCommunityView(newCommunities: currCommunities, noCommunityMsg: "")
 
         // Setup Navigation items
@@ -91,8 +93,10 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
         super.viewWillAppear(animated)
         // Setup communities
         let userDefaults = UserDefaults()
-        let userId = userDefaults.object(forKey: USER_ID)
-        currCommunities = CommunityManager.getUserCommunities(id: userId as! Int64)
+        let userId = userDefaults.object(forKey: kUserId)
+        if let id = userId as? Int64 {
+            currCommunities = CommunityManager.getUserCommunities(id: id)
+        }
         setupCommunityView(newCommunities: currCommunities, noCommunityMsg: "")
         allCommunities = CommunityManager.getAllCommunities()
         navigationItem.titleView = inputsContainerView
@@ -164,8 +168,10 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: communityId, for: indexPath) as! CommunityCell
-        cell.name = communities[indexPath.row].name
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: communityId, for: indexPath)
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: communityId, for: indexPath) as? CommunityCell {
+            cell.name = communities[indexPath.row].name
+        }
         return cell
     }
     

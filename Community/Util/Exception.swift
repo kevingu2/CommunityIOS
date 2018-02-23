@@ -7,5 +7,5 @@
 //
 
 enum MyError : Error {
-    case RuntimeError(String)
+    case runtimeError(String)
 }

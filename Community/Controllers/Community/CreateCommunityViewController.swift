@@ -11,7 +11,7 @@ import UIKit
 class CreateCommunityViewController: UIViewController {
     
     var addNavigationButton: UIBarButtonItem!
-    let user_id = 1
+    let kUserId = 1
     
     let inputsContainerView: UIView = {
         let view = UIView()
@@ -108,7 +108,7 @@ class CreateCommunityViewController: UIViewController {
     
     @objc
     func addTapped(_ sender: UIBarButtonItem){
-        CommunityManager.createCommunity(name: nameTextField.text!, details: descriptionTextField.text!, owner: Int64(user_id))
+        CommunityManager.createCommunity(name: nameTextField.text!, details: descriptionTextField.text!, owner: Int64(kUserId))
         self.navigationController?.popViewController(animated: true)
     }
 }

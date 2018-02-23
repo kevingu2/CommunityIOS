@@ -10,6 +10,7 @@ target 'Community' do
   pod 'FBSDKCoreKit', '~> 4.26.0'
   pod 'FBSDKShareKit', '~> 4.26.0'
   pod 'FBSDKLoginKit', '~> 4.26.0'
+  pod 'SwiftLint', '~> 0.21.0'
 
   target 'CommunityTests' do
     inherit! :search_paths

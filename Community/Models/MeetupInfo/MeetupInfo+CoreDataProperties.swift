@@ -2,7 +2,7 @@
 //  MeetupInfo+CoreDataProperties.swift
 //  
 //
-//  Created by Kevin Gu on 11/20/17.
+//  Created by Kevin Gu on 2/6/18.
 //
 //
 
@@ -17,8 +17,8 @@ extension MeetupInfo {
     }
 
     @NSManaged public var address: String?
-    @NSManaged public var food_type: String?
-    @NSManaged public var restaraunt_name: String?
+    @NSManaged public var foodType: String?
+    @NSManaged public var restarauntName: String?
     @NSManaged public var time: Int16
     @NSManaged public var date: Schedule?
     @NSManaged public var user: User?

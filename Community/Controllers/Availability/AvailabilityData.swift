@@ -11,9 +11,9 @@ import UIKit
 
 var availabilities:[Availability] = []
 let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-let USER_ID = "user_id"
-let CURR_FIRST_NAME = "Kevin"
-let CURR_LAST_NAME = "Gu"
+let kUserId = "user_id"
+let kCurrentFirstName = "Kevin"
+let kCurrentLastName = "Gu"
 
 extension AvailabilityController {
     
@@ -35,26 +35,28 @@ extension AvailabilityController {
 
     func setupData() {
         let userDefaults = UserDefaults()
-        let userId = userDefaults.object(forKey: USER_ID)
+        let userId = userDefaults.object(forKey: kUserId)
         if userId == nil{
             if let delegate = (UIApplication.shared.delegate as? AppDelegate){
                 let context = delegate.persistentContainer.viewContext
-                let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as! User
-                user.firstName = CURR_FIRST_NAME
-                user.lastName = CURR_LAST_NAME
-                user.id = 1
-                for day in days{
-                    let availability = NSEntityDescription.insertNewObject(forEntityName: "Availability", into: context) as! Availability
-                    availability.day = day
-                    availability.user = user
+                if let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as? User {
+                    user.firstName = kCurrentFirstName
+                    user.lastName = kCurrentLastName
+                    user.id = 1
+                    for day in days{
+                        if let availability = NSEntityDescription.insertNewObject(forEntityName: "Availability", into: context) as? Availability {
+                            availability.day = day
+                            availability.user = user
+                        }
+                    }
+                    do {
+                        try(context.save())
+                    } catch{
+                        let nserror = error as NSError
+                        fatalError("Unresolved error \(nserror)")
+                    }
+                    userDefaults.set(user.id, forKey: "user_id")
                 }
-                do {
-                    try(context.save())
-                } catch{
-                    let nserror = error as NSError
-                    fatalError("Unresolved error \(nserror)")
-                }
-                userDefaults.set(user.id, forKey: "user_id")
             } else {
                 fatalError("Unresolved error to initialize context")
             }
@@ -64,7 +66,7 @@ extension AvailabilityController {
     
     func clearData() {
         let userDefaults = UserDefaults()
-        userDefaults.removeObject(forKey: USER_ID)
+        userDefaults.removeObject(forKey: kUserId)
         if let delegate = (UIApplication.shared.delegate as? AppDelegate){
             let context = delegate.persistentContainer.viewContext
             do {
