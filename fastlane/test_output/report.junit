@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='CommunityUITests.xctest' tests='1' failures='0'>
+  <testsuite name='CommunityUITests.CommunityUITests' tests='1' failures='0'>
+    <testcase classname='CommunityUITests.CommunityUITests' name='testExample' time='4.895'/>
+  </testsuite>
+</testsuites>
