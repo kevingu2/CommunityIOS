@@ -25,24 +25,24 @@ let allCommunities = [
 ]
 
 class CommunityManager {
-    
+
     static func hasUser(community: Community, userId: Int64) -> Bool {
-        let user = getUser(id: userId)
-        if community.user?.count == 0 || user == nil{
+        let user = getUser(userId: userId)
+        if community.user?.count == 0 || user == nil {
             return false
         }
         return community.user!.contains(user!)
     }
-    
-    static func getUser(id: Int64) -> User?{
-        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+
+    static func getUser(userId: Int64) -> User? {
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate) {
             let context = delegate.persistentContainer.viewContext
-            let fetchRequest:NSFetchRequest<User> = User.fetchRequest()
+            let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
             do {
-                fetchRequest.predicate = NSPredicate(format: "id = %@", argumentArray: [id])
+                fetchRequest.predicate = NSPredicate(format: "id = %@", argumentArray: [userId])
                 let users =  try context.fetch(fetchRequest) as [User]
                 return users[0]
-            } catch{
+            } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror)")
             }
@@ -50,24 +50,22 @@ class CommunityManager {
         return nil
     }
 
-    
-    
-    static func getUserCommunities(id: Int64) -> [Community]{
-        let user = getUser(id: id)
-        if let communities = user?.community?.allObjects as? [Community]{
+    static func getUserCommunities(userId: Int64) -> [Community] {
+        let user = getUser(userId: userId)
+        if let communities = user?.community?.allObjects as? [Community] {
             return communities
         }
         return []
     }
-    
-    static func getAllCommunities() -> [Community]{
+
+    static func getAllCommunities() -> [Community] {
         var communities: [Community]!
-        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate) {
             let context = delegate.persistentContainer.viewContext
-            let fetchRequest:NSFetchRequest<Community> = Community.fetchRequest()
+            let fetchRequest: NSFetchRequest<Community> = Community.fetchRequest()
             do {
                 communities = try(context.fetch(fetchRequest))
-            } catch{
+            } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror)")
             }
@@ -75,9 +73,9 @@ class CommunityManager {
         }
         return []
     }
-    
+
     static func loadCommunities() {
-        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate) {
             let context = delegate.persistentContainer.viewContext
             for allComunity in allCommunities {
                 if let community = NSEntityDescription.insertNewObject(forEntityName: "Community", into: context) as? Community {
@@ -86,7 +84,7 @@ class CommunityManager {
                     community.owner = 1
                     do {
                         try(context.save())
-                    } catch{
+                    } catch {
                         let nserror = error as NSError
                         fatalError("Unresolved error \(nserror)")
                     }
@@ -94,29 +92,29 @@ class CommunityManager {
             }
         }
     }
-    
+
     static func clearData() {
-        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate) {
             let context = delegate.persistentContainer.viewContext
             do {
                 let entities = ["Community"]
                 for entity in entities {
-                    let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entity)
+                    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entity)
                     let objects = try(context.fetch(fetchRequest)) as? [NSManagedObject]
                     for object in objects! {
                         context.delete(object)
                     }
                     try(context.save())
                 }
-            } catch{
+            } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror)")
             }
         }
     }
-    
+
     static func filterCommunities(communities: [Community], keyword: String) -> [Community] {
-        var filteredCommunities:[Community] = []
+        var filteredCommunities: [Community] = []
         if keyword == "" {
             return communities
         }
@@ -127,43 +125,43 @@ class CommunityManager {
         }
         return filteredCommunities
     }
-    
+
     // MARK: Context Saving
-    
+
     static func leaveCommunity(community: Community, userId: Int64) throws {
-        if !hasUser(community: community, userId: userId){
+        if !hasUser(community: community, userId: userId) {
             throw MyError.runtimeError("User is not contained in community")
         }
-        let user = getUser(id: userId)
+        let user = getUser(userId: userId)
         community.removeFromUser(user!)
-        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate) {
             let context = delegate.persistentContainer.viewContext
             do {
                 try(context.save())
-            } catch{
+            } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror)")
             }
         }
     }
-    
+
     static func joinCommunity(community: Community, userId: Int64) throws {
-        if hasUser(community: community, userId: userId){
+        if hasUser(community: community, userId: userId) {
             throw MyError.runtimeError("User is already in comunity")
         }
-        let user = getUser(id: userId)
+        let user = getUser(userId: userId)
         community.addToUser(user!)
-        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate) {
             let context = delegate.persistentContainer.viewContext
             do {
                 try(context.save())
-            } catch{
+            } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror)")
             }
         }
     }
-    
+
     static func createCommunity(name: String, details: String, owner: Int64) {
         if let delegate = (UIApplication.shared.delegate as? AppDelegate) {
             let context = delegate.persistentContainer.viewContext
@@ -171,11 +169,11 @@ class CommunityManager {
                 community.name = name
                 community.details = details
                 community.owner = owner
-                let user  = getUser(id: owner)
+                let user  = getUser(userId: owner)
                 community.addToUser(user!)
                 do {
                     try(context.save())
-                } catch{
+                } catch {
                     let nserror = error as NSError
                     fatalError("Unresolved error \(nserror)")
                 }
@@ -183,4 +181,3 @@ class CommunityManager {
         }
     }
 }
-

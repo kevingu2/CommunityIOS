@@ -9,41 +9,39 @@
 import UIKit
 
 class SchedueInfoCell: UICollectionViewCell {
-    
-    public var time: String!
-    {
+
+    public var time: String! {
         didSet {
             self.timeLabel.text = time
             setupStackView()
         }
     }
-    
-    public var info: String!
-    {
+
+    public var info: String! {
         didSet {
             self.infoLabel.text = info
             setupStackView()
         }
     }
-    
+
     let timeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.text = "6:00 PM"
-        label.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 15.0)
         return label
     }()
-    
+
     let infoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.text = "Dinner with Kevin at Door Dash"
-        label.font = UIFont(name:"HelveticaNeue", size: 14.0)
+        label.font = UIFont(name: "HelveticaNeue", size: 14.0)
         return label
     }()
-    
+
     let arrowImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "forward_arrow")
@@ -51,16 +49,16 @@ class SchedueInfoCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupStackView()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func setupStackView() {
         let stackView = UIStackView(arrangedSubviews: [timeLabel, infoLabel, arrowImageView])
         addSubview(stackView)
