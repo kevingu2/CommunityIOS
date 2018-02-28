@@ -15,14 +15,14 @@ class AvailableFooterCell: UICollectionViewCell {
         super.init(frame: frame)
         setupViews()
     }
-    
+
     public let contBtn: UIButton = {
         let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    func setupViews(){
+
+    func setupViews() {
         addSubview(contBtn)
         contBtn.setTitle("Continue", for: .normal)
         contBtn.setTitleColor(.blue, for: .normal)
@@ -30,7 +30,7 @@ class AvailableFooterCell: UICollectionViewCell {
         contBtn.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         contBtn.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

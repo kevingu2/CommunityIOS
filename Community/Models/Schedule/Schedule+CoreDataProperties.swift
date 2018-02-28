@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Schedule {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Schedule> {

@@ -14,43 +14,41 @@ let LUNCH = "Lunch"
 let DINNER = "Dinner"
 let MEALS = [BREAKFAST, LUNCH, DINNER]
 
+class AvailableView: UIImageView {
+    public var availability: Availability?
 
-class AvailableView:UIImageView {
-    public var availability:Availability?
-    
     override init(image: UIImage?) {
         super.init(image: image)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-class AvailableCell: UICollectionViewCell, UIGestureRecognizerDelegate{
-    
-    public var availability:Availability!
-    {
+class AvailableCell: UICollectionViewCell, UIGestureRecognizerDelegate {
+
+    public var availability: Availability! {
         didSet {
             self.dayLabel.text = availability.day
             setupViews()
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
     }
-    
+
     let dayLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
         return label
     }()
-    
-    func setupViews(){
+
+    func setupViews() {
         addSubview(dayLabel)
         let section = self.frame.width/4
         dayLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -59,7 +57,7 @@ class AvailableCell: UICollectionViewCell, UIGestureRecognizerDelegate{
         dayLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         dayLabel.layer.borderColor = UIColor.black.cgColor
         dayLabel.layer.borderWidth = 1.0
-        
+
         // Create clickable Views
         for index in 0...(MEALS.count - 1) {
             let clickableView = AvailableView(image: nil)
@@ -71,24 +69,22 @@ class AvailableCell: UICollectionViewCell, UIGestureRecognizerDelegate{
             clickableView.leftAnchor.constraint(equalTo: dayLabel.rightAnchor, constant: section * CGFloat(index)).isActive = true
             clickableView.rightAnchor.constraint(equalTo: dayLabel.rightAnchor, constant: section * CGFloat(index+1)).isActive = true
             clickableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-            
+
             // Add onclick listener
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapMealView(_:)))
             clickableView.availability = availability
             clickableView.tag = index
             clickableView.addGestureRecognizer(tapGesture)
             clickableView.isUserInteractionEnabled = true
-            
+
             let checkMarkImg = UIImage(named: "checkmark")
             if availability != nil {
                 clickableView.contentMode = .scaleAspectFit
-                if MEALS[index] == BREAKFAST && availability.breakfast{
+                if MEALS[index] == BREAKFAST && availability.breakfast {
                     clickableView.image = checkMarkImg
-                }
-                else if MEALS[index] == LUNCH && availability.lunch{
+                } else if MEALS[index] == LUNCH && availability.lunch {
                     clickableView.image = checkMarkImg
-                }
-                else if MEALS[index] == DINNER && availability.dinner{
+                } else if MEALS[index] == DINNER && availability.dinner {
                     clickableView.image = checkMarkImg
                 }
             }
@@ -96,29 +92,29 @@ class AvailableCell: UICollectionViewCell, UIGestureRecognizerDelegate{
     }
 
     @objc
-    func tapMealView(_ sender: UITapGestureRecognizer){
-        if let view = sender.view as? AvailableView{
+    func tapMealView(_ sender: UITapGestureRecognizer) {
+        if let view = sender.view as? AvailableView {
             if let availability = view.availability {
                 if view.tag == 0 {
                     availability.setValue(!availability.breakfast, forKey: "breakfast")
                 } else if view.tag == 1 {
                     availability.setValue(!availability.lunch, forKey: "lunch")
-                } else if view.tag == 2{
+                } else if view.tag == 2 {
                     availability.setValue(!availability.dinner, forKey: "dinner")
                 }
                 if view.image == nil {
                     let checkMarkImg = UIImage(named: "checkmark")
                     view.image = checkMarkImg
                     view.contentMode = .scaleAspectFit
-                } else{
+                } else {
                     view.image = nil
                 }
             }
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
 }

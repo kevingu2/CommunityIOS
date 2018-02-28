@@ -9,7 +9,7 @@
 import UIKit
 
 func filterStrings(strings: [String], keyword: String) -> [String] {
-    var filteredStrings:[String] = []
+    var filteredStrings: [String] = []
     if keyword == "" {
         return strings
     }
@@ -22,9 +22,9 @@ func filterStrings(strings: [String], keyword: String) -> [String] {
 }
 
 func addBoldText(fullString: NSString, boldPartOfString: NSString, font: UIFont!, boldFont: UIFont!) -> NSAttributedString {
-    let nonBoldFontAttribute = [NSAttributedStringKey.font:font!]
-    let boldFontAttribute = [NSAttributedStringKey.font:boldFont!]
-    let boldString = NSMutableAttributedString(string: fullString as String, attributes:nonBoldFontAttribute)
+    let nonBoldFontAttribute = [NSAttributedStringKey.font: font!]
+    let boldFontAttribute = [NSAttributedStringKey.font: boldFont!]
+    let boldString = NSMutableAttributedString(string: fullString as String, attributes: nonBoldFontAttribute)
     boldString.addAttributes(boldFontAttribute, range: fullString.range(of: boldPartOfString as String))
     return boldString
 }

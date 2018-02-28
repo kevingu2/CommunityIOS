@@ -39,13 +39,12 @@ let kMeetUPInfoDay2 = [
     ]
 ]
 
-
 class MeetupInfoManager {
-    static func getDateWithMeetupInfo () -> [Any]?{
+    static func getDateWithMeetupInfo () -> [Any]? {
         var dateWithMeetupInfo: [Any]! = []
-        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate) {
             let context = delegate.persistentContainer.viewContext
-            let fetchRequest:NSFetchRequest<Schedule> = Schedule.fetchRequest()
+            let fetchRequest: NSFetchRequest<Schedule> = Schedule.fetchRequest()
             do {
                 let schedules = try(context.fetch(fetchRequest))
                 for schedule in schedules {
@@ -54,7 +53,7 @@ class MeetupInfoManager {
                         dateWithMeetupInfo.append(meetupInfo)
                     }
                 }
-            } catch{
+            } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror)")
             }
@@ -62,9 +61,9 @@ class MeetupInfoManager {
         }
         return []
     }
-    
+
     static func load() {
-        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate) {
             let context = delegate.persistentContainer.viewContext
             let today = Date()
             let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)
@@ -88,30 +87,9 @@ class MeetupInfoManager {
                     }
                 }
             }
-            for meetupInfoDic in kMeetUPInfoDay2 {
-                if let schedule2 = NSEntityDescription.insertNewObject(forEntityName: "Schedule", into: context) as? Schedule {
-                    let weekAhead = Calendar.current.date(byAdding: .day, value: 7, to: today)
-                    schedule2.date = weekAhead
-                    if let meetupInfo = NSEntityDescription.insertNewObject(forEntityName: "MeetupInfo", into: context) as? MeetupInfo {
-                        meetupInfo.address = meetupInfoDic["address"] as? String
-                        meetupInfo.restarauntName = meetupInfoDic["restaraunt_name"] as? String
-                        meetupInfo.foodType = meetupInfoDic["food_type"] as? String
-                        if let time = meetupInfoDic["time"] as? Int {
-                            meetupInfo.time = Int16(time)
-                        }
-                        if let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as?
-                            User {
-                            user.firstName = meetupInfoDic["first_name"] as? String
-                            user.lastName = meetupInfoDic["last_name"] as? String
-                            meetupInfo.user = user
-                            schedule2.addToMeetupInfo(meetupInfo)
-                        }
-                    }
-                }
-            }
             do {
                 try(context.save())
-            } catch{
+            } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror)")
             }
@@ -119,19 +97,19 @@ class MeetupInfoManager {
     }
 
     static func clearData() {
-        if let delegate = (UIApplication.shared.delegate as? AppDelegate){
+        if let delegate = (UIApplication.shared.delegate as? AppDelegate) {
             let context = delegate.persistentContainer.viewContext
             do {
                 let entities = ["Schedule", "MeetupInfo"]
                 for entity in entities {
-                    let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entity)
+                    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entity)
                     let objects = try(context.fetch(fetchRequest)) as? [NSManagedObject]
                     for object in objects! {
                         context.delete(object)
                     }
                     try(context.save())
                 }
-            } catch{
+            } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror)")
             }
