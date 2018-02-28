@@ -46,9 +46,10 @@ class CommunityDetailViewController: UIViewController {
         let userDefaults = UserDefaults()
         let userId = userDefaults.object(forKey: kUserId)
         if let id = userId as? Int64 {
-            CommunityManager.hasUser(community: community, userId: id)
-            joinLeaveButton.addTarget(self, action: #selector(self.leaveCommunity(_:)), for: .touchUpInside)
-            joinLeaveButton.setTitle("Leave Community", for: .normal)
+            if CommunityManager.hasUser(community: community, userId: id) {
+                joinLeaveButton.addTarget(self, action: #selector(self.leaveCommunity(_:)), for: .touchUpInside)
+                joinLeaveButton.setTitle("Leave Community", for: .normal)
+            }
         } else{
             joinLeaveButton.addTarget(self, action: #selector(self.joinCommunity(_:)), for: .touchUpInside)
             joinLeaveButton.setTitle("Join Community", for: .normal)

@@ -84,8 +84,8 @@ class AvailabilityController: UICollectionViewController, UICollectionViewDelega
             return header
         } else {
             let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerId, for: indexPath)
-            if let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerId, for: indexPath) as? AvailableFooterCell {
-                footer.contBtn.addTarget(self, action: #selector(self.transitionToSearch(_:)), for: .touchUpInside)
+            if let availableFooter = footer as? AvailableFooterCell {
+                availableFooter.contBtn.addTarget(self, action: #selector(self.transitionToSearch(_:)), for: .touchUpInside)
             }
             pickerView.topAnchor.constraint(equalTo: footer.bottomAnchor).isActive = true
             return footer
