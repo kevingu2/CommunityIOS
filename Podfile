@@ -11,6 +11,8 @@ target 'Community' do
   pod 'FBSDKShareKit', '~> 4.26.0'
   pod 'FBSDKLoginKit', '~> 4.26.0'
   pod 'SwiftLint', '~> 0.21.0'
+  pod 'Fabric', '~>1.6.12'
+  pod 'Crashlytics', '~> 3.8.5'
 
   target 'CommunityTests' do
     inherit! :search_paths
