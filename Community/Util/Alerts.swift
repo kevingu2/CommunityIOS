@@ -8,7 +8,7 @@
 
 import UIKit
 
-func createAlert(title:String, msg: String) -> UIAlertController{
+func createAlert(title: String, msg: String) -> UIAlertController {
     let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
     return alert

@@ -6,6 +6,6 @@
 //  Copyright © 2017 kgulabs. All rights reserved.
 //
 
-enum MyError : Error {
+enum MyError: Error {
     case runtimeError(String)
 }

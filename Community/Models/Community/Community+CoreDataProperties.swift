@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Community {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Community> {

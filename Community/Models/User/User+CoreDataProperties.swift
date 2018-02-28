@@ -1,4 +1,4 @@
- //
+//
 //  User+CoreDataProperties.swift
 //  
 //
@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreData
-
 
 extension User {
 

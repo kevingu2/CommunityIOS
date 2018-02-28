@@ -8,14 +8,14 @@
 
 import UIKit
 
-class MealCell: UICollectionViewCell{
-    
+class MealCell: UICollectionViewCell {
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
     }
-    
-    func setupViews(){
+
+    func setupViews() {
         // Setup Blank cell
         let section = self.frame.width/4
         var cellText = MEALS
@@ -32,12 +32,12 @@ class MealCell: UICollectionViewCell{
             mealLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
             mealLabel.text = cellText[index]
             mealLabel.textAlignment = .center
-            mealLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
+            mealLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
 }
