@@ -1,0 +1,8 @@
+# .slather.yml
+
+coverage_service: coveralls
+workspace: Community.xcworkspace
+xcodeproj: Community.xcodeproj
+scheme: Community
+ignore:
+  - Pods/*
