@@ -10,10 +10,6 @@ jobs:
       script:
         - fastlane lint
 
-    - stage: XCTest
-      script:
-        - fastlane scan -s CommunityUITests
-
     - stage: CodeCoverage
       script:
         - fastlane report_tests
