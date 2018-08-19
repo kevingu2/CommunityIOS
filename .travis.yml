@@ -12,4 +12,9 @@ jobs:
 
     - stage: XCTest
       script:
-        - fastlane scan -s CommunityUITests 
+        - fastlane scan -s CommunityUITests
+
+    - stage: CodeCoverage
+      script:
+        - fastlane report_tests
+
