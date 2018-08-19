@@ -4,6 +4,13 @@ xcode_scheme: CommunityUITests
 osx_image: xcode9.2
 xcode_sdk: iphonesimulato11.0
 
+install:
+  - pip install --user codecov
+# or
+  - conda install -c conda-forge codecov
+after_success:
+  - codecov
+
 jobs:
   include:
     - stage: Swiflint
