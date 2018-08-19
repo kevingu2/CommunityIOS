@@ -8,13 +8,6 @@ before_install: rvm use $RVM_RUBY_VERSION
 install: bundle install --without=documentation --path ../travis_bundle_dir
 after_success: slather
 
-install:
-  - pip install --user codecov
-# or
-  - conda install -c conda-forge codecov
-after_success:
-  - codecov
-
 jobs:
   include:
     - stage: Swiflint
