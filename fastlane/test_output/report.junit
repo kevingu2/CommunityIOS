@@ -1,6 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<testsuites name='CommunityUITests.xctest' tests='1' failures='0'>
+<testsuites name='CommunityUITests.xctest' tests='3' failures='0'>
+  <testsuite name='CommunityTests.CommunityTests' tests='2' failures='0'>
+    <testcase classname='CommunityTests.CommunityTests' name='testExample' time='0.001'/>
+    <testcase classname='CommunityTests.CommunityTests' name='testPerformanceExample' time='0.358'/>
+  </testsuite>
   <testsuite name='CommunityUITests.CommunityUITests' tests='1' failures='0'>
-    <testcase classname='CommunityUITests.CommunityUITests' name='testExample' time='4.895'/>
+    <testcase classname='CommunityUITests.CommunityUITests' name='testExample' time='5.409'/>
   </testsuite>
 </testsuites>
