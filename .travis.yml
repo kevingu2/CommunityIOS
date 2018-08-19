@@ -8,7 +8,7 @@ jobs:
   include:
     - stage: Swiflint
       script:
-        - ./Pods/SwiftLint/swiftlint --reporter junit
+        - fastlane lint
 
     - stage: XCTest
       script:
