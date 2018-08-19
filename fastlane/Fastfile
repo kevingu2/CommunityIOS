@@ -33,8 +33,9 @@ platform :ios do
   desc "swift lint"
   lane :lint do
     swiftlint(
-	  mode: :lint,      # SwiftLint mode: :lint (default) or :autocorrect
-	  config_file: ".swiftlint.yml",     # The path of the configuration file (optional)
+	  mode: :lint, 
+	  config_file: ".swiftlint.yml",
+	  strict: true
 	)
   end
 end
