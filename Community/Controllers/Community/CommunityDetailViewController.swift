@@ -49,10 +49,10 @@ class CommunityDetailViewController: UIViewController {
             if CommunityManager.hasUser(community: community, userId: id) {
                 joinLeaveButton.addTarget(self, action: #selector(self.leaveCommunity(_:)), for: .touchUpInside)
                 joinLeaveButton.setTitle("Leave Community", for: .normal)
+            } else {
+                joinLeaveButton.addTarget(self, action: #selector(self.joinCommunity(_:)), for: .touchUpInside)
+                joinLeaveButton.setTitle("Join Community", for: .normal)
             }
-        } else {
-            joinLeaveButton.addTarget(self, action: #selector(self.joinCommunity(_:)), for: .touchUpInside)
-            joinLeaveButton.setTitle("Join Community", for: .normal)
         }
         view.addSubview(joinLeaveButton)
         setupJoinLeaveButton()
