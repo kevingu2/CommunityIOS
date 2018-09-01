@@ -22,10 +22,10 @@
 		0377130B1F5274B800CBCD87 /* CommunityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377130A1F5274B800CBCD87 /* CommunityTests.swift */; };
 		037713161F5274B800CBCD87 /* CommunityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037713151F5274B800CBCD87 /* CommunityUITests.swift */; };
 		037713241F5346D900CBCD87 /* AvailabilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037713231F5346D900CBCD87 /* AvailabilityController.swift */; };
-		0387470D1FAFDDE0003969B4 /* CommunityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0387470C1FAFDDE0003969B4 /* CommunityManager.swift */; };
 		038ADF8C1FC4FEA100DD38A6 /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038ADF8B1FC4FEA100DD38A6 /* ScheduleDetailViewController.swift */; };
 		03A54F231FB4AD80001730BC /* Exception.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A54F221FB4AD80001730BC /* Exception.swift */; };
 		03B5EC381F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B5EC371F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift */; };
+		03BD4637213B02FC005B849B /* CommunityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0387470C1FAFDDE0003969B4 /* CommunityManager.swift */; };
 		03C52C1F1F74E24F0016DB3C /* FrequencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C52C1E1F74E24F0016DB3C /* FrequencyCell.swift */; };
 		03CB191D1FA50C81004B215C /* CommunityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CB191C1FA50C81004B215C /* CommunityDetailViewController.swift */; };
 		03CFB8011FB90D840046343D /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFB8001FB90D840046343D /* DateCell.swift */; };
@@ -475,6 +475,7 @@
 				TargetAttributes = {
 					037712F11F5274B800CBCD87 = {
 						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
 					};
 					037713051F5274B800CBCD87 = {
 						CreatedOnToolsVersion = 9.0;
@@ -667,11 +668,11 @@
 				03CFBAFF1F90ACB0000C3CAC /* Alerts.swift in Sources */,
 				03CFBB081F90B690000C3CAC /* CommunityViewController.swift in Sources */,
 				031CBF8C1FA74A480012B2D4 /* Common.swift in Sources */,
-				0387470D1FAFDDE0003969B4 /* CommunityManager.swift in Sources */,
 				0360A2EA201A04070062A2F5 /* InfoContainer.swift in Sources */,
 				032EF0D11F6E19B800EDDCAD /* AvailabilityData.swift in Sources */,
 				032EF0B71F6DA04F00EDDCAD /* Community.xcdatamodeld in Sources */,
 				03B5EC381F70D2BE00AEB0E5 /* AvailabilityFooterCell.swift in Sources */,
+				03BD4637213B02FC005B849B /* CommunityManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,11 +831,14 @@
 			baseConfigurationReference = F06A108E2836BF20DC6A3EDD /* Pods-Community.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EJM34WW366;
 				INFOPLIST_FILE = Community/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kgulabs.Community;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -845,11 +849,14 @@
 			baseConfigurationReference = 14A5E0FEDBA029423EFA0057 /* Pods-Community.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EJM34WW366;
 				INFOPLIST_FILE = Community/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kgulabs.Community;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -168,8 +168,8 @@ class CommunityViewController: UICollectionViewController, UICollectionViewDeleg
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: communityId, for: indexPath)
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: communityId, for: indexPath) as? CommunityCell {
-            cell.name = communities[indexPath.row].name
+        if let communityCell = cell as? CommunityCell {
+            communityCell.name = communities[indexPath.row].name
         }
         return cell
     }

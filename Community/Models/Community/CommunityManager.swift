@@ -132,8 +132,11 @@ class CommunityManager {
         if !hasUser(community: community, userId: userId) {
             throw MyError.runtimeError("User is not contained in community")
         }
-        let user = getUser(userId: userId)
-        community.removeFromUser(user!)
+        guard let user  = getUser(userId: userId) else {
+            return
+        }
+        community.removeFromUser(user)
+        user.removeFromCommunity(community)
         if let delegate = (UIApplication.shared.delegate as? AppDelegate) {
             let context = delegate.persistentContainer.viewContext
             do {
@@ -169,8 +172,11 @@ class CommunityManager {
                 community.name = name
                 community.details = details
                 community.owner = owner
-                let user  = getUser(userId: owner)
-                community.addToUser(user!)
+                guard let user  = getUser(userId: owner) else {
+                    return
+                }
+                community.addToUser(user)
+                user.addToCommunity(community)
                 do {
                     try(context.save())
                 } catch {
